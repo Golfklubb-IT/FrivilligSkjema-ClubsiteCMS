@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Frivilligstyring</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+    <div class="admin-layout">
+        <!-- Sidepanel / Meny -->
+        <nav class="admin-sidebar">
+            <h2>Ski GK Admin</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('dashboard')">Oversikt</a></li>
+                <li><a href="#" onclick="showSection('createActivity')">Ny Dugnad</a></li>
+                <li><a href="#" onclick="showSection('registrations')">Påmeldte</a></li>
+                <li><a href="#" onclick="showSection('pushNotifications')">Send Push-Varsel</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hovedinnhold -->
+        <main class="admin-content">
+            
+            <!-- Seksjon: Dashboard / Oversikt -->
+            <section id="dashboard" class="admin-section active">
+                <h2>Aktive Dugnader</h2>
+                <div id="adminActivitiesList">
+                    <p>Laster inn data...</p>
+                </div>
+            </section>
+
+            <!-- Seksjon: Opprett ny dugnad -->
+            <section id="createActivity" class="admin-section">
+                <h2>Gjør klar en ny dugnad</h2>
+                <form id="createActivityForm" class="admin-form">
+                    <label>Tittel:</label>
+                    <input type="text" id="newTitle" required placeholder="F.eks. Banevert">
+                    
+                    <label>Dato:</label>
+                    <input type="date" id="newDate" required>
+                    
+                    <label>Sted:</label>
+                    <input type="text" id="newLocation" required>
+                    
+                    <label>Type:</label>
+                    <select id="newType">
+                        <option value="Vakter">Vakter (Delt opp i tid)</option>
+                        <option value="Felles">Felles (Alle samtidig)</option>
+                    </select>
+
+                    <label>Beskrivelse:</label>
+                    <textarea id="newDesc" rows="4"></textarea>
+
+                    <button type="submit" class="btn-submit">Lagre Dugnad</button>
+                    <p><small>(I det endelige ASP APIet vil vi kunne legge til spesifikke vakter dynamisk her)</small></p>
+                </form>
+            </section>
+
+            <!-- Seksjon: Påmeldte / Frivillige -->
+            <section id="registrations" class="admin-section">
+                <h2>Frivillige som har meldt seg</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Navn</th>
+                            <th>Aktivitet</th>
+                            <th>Vakt</th>
+                            <th>Medlemsnr</th>
+                            <th>Tidspunkt</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registrationsTableBody">
+                        <tr><td colspan="5">Laster inn påmeldinger...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Seksjon: Push Varsler -->
+            <section id="pushNotifications" class="admin-section">
+                <h2>Send Push-Varsel til Klubben</h2>
+                <p>Send en direkte beskjed til alle frivillige som har appen (PWA) installert på telefonen sin.</p>
+                <form id="pushForm" class="admin-form">
+                    <label>Tittel på varsel:</label>
+                    <input type="text" id="pushTitle" placeholder="F.eks. Krise: Vi trenger baneverter!">
+                    
+                    <label>Melding:</label>
+                    <textarea id="pushMessage" rows="3" placeholder="Skriv beskjeden din her..."></textarea>
+                    
+                    <button type="submit" class="btn-submit" style="background-color: #d32f2f;">Send Varsel Nå</button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

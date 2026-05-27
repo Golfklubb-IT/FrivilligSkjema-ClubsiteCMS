@@ -1,0 +1,46 @@
+[
+  {
+    "id": "A-100",
+    "title": "Banevert",
+    "date": "2026-06-05",
+    "location": "Klubbhuset / Banen",
+    "description": "Vi trenger baneverter til å patruljere og bistå spillere ute på banen.",
+    "type": "Vakter",
+    "shifts": [
+      {
+        "shiftId": "S-100-1",
+        "timeStart": "12:00",
+        "timeEnd": "14:00",
+        "neededVolunteers": 1
+      },
+      {
+        "shiftId": "S-100-2",
+        "timeStart": "14:00",
+        "timeEnd": "18:00",
+        "neededVolunteers": 2
+      },
+      {
+        "shiftId": "S-100-3",
+        "timeStart": "19:00",
+        "timeEnd": "21:00",
+        "neededVolunteers": 1
+      }
+    ]
+  },
+  {
+    "id": "A-101",
+    "title": "Ballplukking på rangen",
+    "date": "2026-06-11",
+    "location": "Driving Range",
+    "description": "Felles dugnad for å rydde skogkanten og plukke baller på rangen. Møt opp med godt humør!",
+    "type": "Felles",
+    "shifts": [
+      {
+        "shiftId": "S-101-1",
+        "timeStart": "17:00",
+        "timeEnd": "20:00",
+        "neededVolunteers": 15
+      }
+    ]
+  }
+]

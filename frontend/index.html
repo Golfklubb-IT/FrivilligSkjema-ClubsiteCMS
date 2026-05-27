@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski GK - Frivillig Webkalender</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="calendar-container">
+        <header>
+            <h1>Dugnadskalender - Ski GK</h1>
+            <p>Klikk på en aktivitet for å melde deg på som frivillig.</p>
+            <a href="app/index.html" class="app-link">Åpne Mobilvisning (PWA)</a>
+        </header>
+
+        <!-- Kalenderen tegnes opp her av FullCalendar -->
+        <div id="calendar"></div>
+    </div>
+
+    <!-- Enkel modal for påmelding -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalActivityTitle">Aktivitet</h2>
+            <p id="modalActivityDesc"></p>
+            
+            <form id="signupForm">
+                <input type="hidden" id="activityId">
+                <label for="shiftSelect">Velg Vakt/Tidspunkt:</label>
+                <select id="shiftSelect" required></select>
+
+                <label for="name">Navn:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">E-post:</label>
+                <input type="email" id="email" required>
+
+                <label for="phone">Telefon:</label>
+                <input type="tel" id="phone" required>
+
+                <label for="memberNum">Medlemsnummer:</label>
+                <input type="text" id="memberNum" required>
+
+                <button type="submit" class="btn-submit">Meld meg på!</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initWebCalendar();
+        });
+    </script>
+</body>
+</html>

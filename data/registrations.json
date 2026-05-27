@@ -1,0 +1,26 @@
+[
+  {
+    "id": "R-100",
+    "activityId": "A-100",
+    "shiftId": "S-100-2",
+    "name": "Ola Nordmann",
+    "email": "ola@eksempel.no",
+    "phone": "99887766",
+    "memberNumber": "12345",
+    "deviceToken": "abc123firebase_token_here_for_push",
+    "status": "Confirmed",
+    "registeredAt": "2026-05-27T10:15:00Z"
+  },
+  {
+    "id": "R-101",
+    "activityId": "A-101",
+    "shiftId": "S-101-1",
+    "name": "Kari Nordmann",
+    "email": "kari@eksempel.no",
+    "phone": "99887755",
+    "memberNumber": "12346",
+    "deviceToken": "xyz987firebase_token_here_for_push",
+    "status": "Confirmed",
+    "registeredAt": "2026-05-27T11:20:00Z"
+  }
+]

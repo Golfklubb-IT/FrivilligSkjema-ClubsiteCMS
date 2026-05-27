@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ski GK Frivillig App</title>
+    <!-- manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2E7D32">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="mobile-app">
+    <header class="app-header">
+        <h1>Ski GK Frivillig</h1>
+        <button id="enablePushBtn" class="btn-small hidden">Aktiver Varsler</button>
+    </header>
+
+    <main class="app-content">
+        <h2>Kommende Dugnader</h2>
+        <div id="mobileActivitiesList" class="list-container">
+            <!-- Lastes inn dynamisk via JS -->
+            <p>Laster inn aktiviteter...</p>
+        </div>
+    </main>
+
+    <!-- Enkel modal for påmelding (Gjenbruk for mobil) -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content mobile-modal">
+            <span class="close">&times;</span>
+            <h2 id="modalActivityTitle">Aktivitet</h2>
+            <form id="signupForm">
+                <input type="hidden" id="activityId">
+                <label>Vakt:</label>
+                <select id="shiftSelect" required></select>
+
+                <label>Navn:</label>
+                <input type="text" id="name" required>
+
+                <label>Telefon:</label>
+                <input type="tel" id="phone" required>
+
+                <button type="submit" class="btn-submit">Meld på</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initMobileApp();
+        });
+
+        // PWA Service Worker registrering
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(() => {
+                console.log('Service Worker Registered');
+            });
+        }
+    </script>
+</body>
+</html>
