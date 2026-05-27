@@ -13,9 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Håndter skjema for Push-varsel
-    document.getElementById('pushForm').addEventListener('submit', (e) => {
+    document.getElementById('pushForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert("Push-varsel sendt via Firebase/OneSignal (Simulert)!");
+        
+        const btn = document.querySelector('#pushForm .btn-submit');
+        btn.innerText = "Sender...";
+        btn.disabled = true;
+
+        const formData = new URLSearchParams();
+        formData.append('title', document.getElementById('pushTitle').value);
+        formData.append('message', document.getElementById('pushMessage').value);
+
+        try {
+            const response = await fetch('../../api/send_push.asp', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            
+            alert(result.message);
+            if(result.status === "success") {
+                document.getElementById('pushForm').reset();
+            }
+        } catch(err) {
+            console.error("Feil ved sending: ", err);
+            alert("Det skjedde en kritisk feil. Sjekk console.");
+        } finally {
+            btn.innerText = "Send Varsel Nå";
+            btn.disabled = false;
+        }
     });
 });
 

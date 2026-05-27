@@ -71,9 +71,19 @@ async function initMobileApp() {
             listEl.appendChild(card);
         });
 
-        // Dummy-sjekk for push-varsler
-        if ('Notification' in window) {
-            document.getElementById('enablePushBtn').classList.remove('hidden');
+        // Dummy-sjekk for push-varsler, nå byttet til OneSignal sin funksjon
+        const enablePushBtn = document.getElementById('enablePushBtn');
+        if (enablePushBtn && 'Notification' in window) {
+            enablePushBtn.classList.remove('hidden');
+            enablePushBtn.addEventListener('click', () => {
+                // Ber bruker om tillatelse via OneSignal
+                window.OneSignalDeferred.push(async function(OneSignal) {
+                    await OneSignal.Slidedown.promptPush();
+                    enablePushBtn.innerText = "Varsler aktivert!";
+                    enablePushBtn.disabled = true;
+                    enablePushBtn.style.backgroundColor = "#ccc";
+                });
+            });
         }
 
     } catch (err) {
