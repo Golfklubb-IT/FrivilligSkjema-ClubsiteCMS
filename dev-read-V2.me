@@ -1,0 +1,36 @@
+# Oppsummering av Versjon 2: Frivillig- og Dugnadsmodul
+
+Dette dokumentet beskriver ny funksjonalitet som er implementert i **Versjon 2** av FrivilligSkjema-modulen. Hovedfokuset for denne oppdateringen har vært autentisering av frivillige og integrering av push-varsler for moderne og effektiv kommunikasjon.
+
+## 1. Autentisering (Firebase Auth)
+For å gjøre påmeldingen raskere og sikrere, har vi implementert Firebase Authentication for PWA-appen (mobilvisningen). 
+
+Når en frivillig åpner appen for første gang, vil de møte en innloggingsskjerm. Når de er logget inn, husker appen hvem de er, og påmeldingsskjemaene autofylles automatisk med navn og e-post.
+
+**Implementerte metoder:**
+*   **Google Login:** Allerede satt opp og aktivert i logikken vår (`frontend/js/auth.js`). Brukeren logger enkelt inn ved å trykke på Google-knappen.
+*   **SMS/Telefon Login:** Bygget og forberedt som et lavterskel-alternativ. For at denne skal knyttes fysisk på i frontenden, må prosjekteier gå inn i Firebase Console (`Build > Authentication > Sign-in method`) og klikke "Enable" på Phone-provideren.
+
+**Oppsett/Konfigurasjon for Utviklere:**
+Ekte API-nøkler for Firebase er allerede automatisk hentet ut fra Firebase-prosjektet `frivillig-kalendar-klubb` og ligger plassert i filen `frontend/js/auth.js`. Skal systemet kopieres over og rulles ut på helt egne rammer for *andre* golfklubber, er det bare å bytte ut seksjonen `const firebaseConfig` i samme fil med et nytt miljø.
+
+---
+
+## 2. Push-varsler (OneSignal)
+Siden Classic ASP ikke natively kan dytte Push-meldinger til moderne smarttelefoner, har vi løst "Admin-til-Frivillig"-kommunikasjon via skytjenesten OneSignal.
+
+**Slik henger det sammen:**
+1.  **Frontend (PWA):** En "Aktiver Varsler"-knapp blir synlig for brukeren i appen. Dette trigger "SlideDown" promptet til OneSignal, som spør operativsystemet om tillatelse. Prosjektet inneholder nå den essensielle service-workeren `OneSignalSDKWorker.js`.
+2.  **Admin Dashboard:** En egen fane "Send Push-Varsel" ble laget i Versjon 1. Denne ble nå koblet mot det nye ASP-bakstykket (`api/send_push.asp`) via JavaScript fetch.
+3.  **Classic ASP Trigger:** Når et varsel sendes, bruker MSXML2.ServerXMLHTTP (i filen `api/send_push.asp`) REST-API-kall rett til OneSignal's hovedkvarter. Ingen usikre biblioteker eller utvidelser trengs å installeres på IIS/Windows Serveren! 
+
+**Oppsett for Utviklere (Must-do før launch):**
+For å låse opp magien må klubben opprette den gratis kontoen hos [OneSignal.com](https://onesignal.com). Der får man to nøkkelkoder som må settes inn i systemet:
+
+*   I **`frontend/app/index.html`**: Finn objektet `OneSignal.init` og fyll inn App ID der `SETT_INN_ONESIGNAL_APP_ID_HER` står.
+*   I **`api/send_push.asp`**: Fyll inn begge variablene (`oneSignalAppId` og `restApiKey`) med ekte nøkler. 
+
+---
+
+**Konklusjon & Drift:**
+Versjon 2 gjør appen tryggere (null personopplysninger lagres unødvendig hos dere) og mye smartere for de frivillige. Utvikler-teamet trenger nå kun å erstatte OneSignal-nøklene, skru på SMS-auth i Firebase og sjekke det ut i live-miljøet før det prodsettes for klubbens medlemmer!
