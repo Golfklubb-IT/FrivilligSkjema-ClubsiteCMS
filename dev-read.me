@@ -1,0 +1,41 @@
+# Oppsummering av Prosjekt: Frivillig- og Dugnadsmodul (Clubsite CMS)
+
+Dette dokumentet oppsummerer hva som er bygget og levert i **Versjon 1 (Prototype)**, hvilke tekniske valg som er tatt for en Classic ASP-plattform, og planen vår for **Versjon 2** (Autentisering og Push-varsler).
+
+## 1. Hva som er levert nå (V1 Prototype)
+Vi har bygget en smidig, moderne og frittstående dugnadsmodul som kjører på toppen av det eksisterende Classic ASP-miljøet, uten å gjøre inngrep i CMS-kjernen. Slik er den bygget opp:
+
+*   **To-delt Frontend (SPA):**
+    *   **Desktop/Nettside:** En stor, visuell kalendervisning (FullCalendar) designet for å ligge inne på klubbens nettsider.
+    *   **Mobil-App (PWA):** En mobil-optimalisert listevisning som kan lagres som en app på hjemskjermen (Progressive Web App). Terskelen for påmelding er foreløpig holdt på null: Frivillige taster bare inn navn, e-post/telefon og medlemsnummer.
+*   **Admin Dashboard:**
+    *   Et enkelt grensesnitt for klubbadministratorer for å se påmeldingslister og (snart) opprette nye dugnader. Dette panelet er ment å legges bak eksisterende påloggingsmur i Clubsite CMS (`CSADMIN`).
+*   **Classic ASP som "Headless API":**
+    *   I stedet for at ASP-rendrer HTML-en, fungerer ASP nå som et moderne JSON API (`api/get_activities.asp` og `api/save_registration.asp`) som mater JavaScriptet på frontenden med data.
+*   **NoSQL / JSON Datastruktur:**
+    *   For å håndtere fleksibiliteten klubben trenger (f.eks. faste fellesdugnader vs. vakter spredt over tid som "Banevert 12-14 og 14-18"), lagres data foreløpig i en skjemaløs JSON-struktur (`activities.json` / `registrations.json`). Dette gjør prototyping utrolig raskt, og kan lett konverteres til SQL eller Firestore senere om nødvendig.
+
+Alt er isolert i en egen mappe (`frivillig/`) og sitt eget GitHub-repository for å ikke forstyrre eksisterende produksjonskode under testing.
+
+---
+
+## 2. Plan og strategier for Versjon 2
+Når V1 er verifisert av testerne, går vi i gang med Versjon 2. Fokuset her er på brukeropplevelse (unngå å taste inn info gjentatte ganger), sikkerhet, og kommunikasjon:
+
+**A. Autentisering via Firebase (Gratis og sikkert)**
+Siden Clubsite CMS/Windows Server ikke bør belastes med store integrasjoner for moderne app-sikkerhet, legger vi app-innloggingen til Firebase. Dette gir oss "top-tier" sikkerhet uten at ASP-serveren rører brukernes passord.
+Følgende innloggingsmetoder blir implementert:
+1.  **Google Login:** Ett-klikks pålogging for de ~80% som foretrekker det. Null friksjon.
+2.  **Mobil/SMS Login:** Vi bygger en autentisering der bruker får tilsendt en 6-sifret kode på SMS (Samme brukeropplevelse som Vipps). **Hvorfor ikke Vipps?** Fordi Vipps-autentisering koster uforholdsmessig mye penger. Med vårt forventede totalvolum på tvers av CMS-klubbene (maks 2-3000 aktive brukere/mnd), vil SMS-utsendelsen via Firebase falle godt innenfor deres gratisnivå (10.000 SMS i måneden).
+3.  **E-post og Passord:** Som en universell "fallback" for de som foretrekker det tradisjonelt.
+
+**B. Push-varsler (OneSignal)**
+For å løse behovet for direkte kommunikasjon fra Admin til frivillige (eks. *"Krise, banen er under vann, vi trenger folk"*). 
+*   Classic ASP kan ikke dytte meldinger til en mobiltelefon. Derfor integrerer vi appen mot OneSignal/Firebase Cloud Messaging.
+*   PWA-en vil be bruker om tillatelse: *"Vil du motta varsler?"*
+*   I Admin Dashboardet vårt lages et grensesnitt ("Send Varsel"). Når admin trykker send, trigger ASP-scriptet et "webhook" til OneSignal, som umiddelbart skyter ut varselet til alle de frivillige sine mobiler. Også dette vil være 100% innenfor gratis-kvotene.
+
+---
+
+**Konklusjon / Til testerne:**
+Løsningen ligger nå klar til å klikkes på, testes, og valideres for informasjonsflyt. Fungerer det underliggende API-løpet og datastrukturen med vakter? Gi et "Go" på interaksjonsdesignet, så bygger vi på innlogging, SMS-verifisering og backend lagringslogikk!
