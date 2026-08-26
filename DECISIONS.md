@@ -16,5 +16,6 @@
   `tenants`, `appCatalog` og `licenses`.
 - `admin-test` er første testflate. Produksjonskanalene skal ikke oppdateres før
   ekte innlogging og tenantisolasjon er kontrollert.
-- E-post-bootstrap for appOwner er midlertidig og skal senere erstattes av
-  eksplisitte owner-dokumenter/claims uten hardkodede e-postadresser i regler.
+- `owe-admin@golfklubb-it.com` er eneste appOwner-konto i denne fasen.
+- E-post-bootstrap er midlertidig og skal senere erstattes av eksplisitte
+  owner-dokumenter/claims uten hardkodede e-postadresser i regler.

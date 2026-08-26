@@ -23,3 +23,5 @@ Preview utløper 02.09.2026 dersom kanalene ikke forlenges.
 - Firestore-regler er deployet med tenant-, appkatalog- og lisensisolasjon.
 - Ny kode er lintet, bygget og publisert til `admin-test` for demo, Ski GK og
   klubb-portalen. Produksjonskanalene er fortsatt uendret.
+- AppOwner er strammet inn til `owe-admin@golfklubb-it.com`; Demo er ikke
+  lenger en valgmulighet for `clubAdmin`.
