@@ -25,3 +25,6 @@ Preview utløper 02.09.2026 dersom kanalene ikke forlenges.
   klubb-portalen. Produksjonskanalene er fortsatt uendret.
 - AppOwner er strammet inn til `owe-admin@golfklubb-it.com`; Demo er ikke
   lenger en valgmulighet for `clubAdmin`.
+- Adminversjonen er nå publisert til produksjonskanalene for demo, Ski GK og
+  klubbportalen. Dette var en eksplisitt deploy; tidligere produksjonsversjon
+  er dermed erstattet.

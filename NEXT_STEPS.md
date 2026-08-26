@@ -11,7 +11,7 @@
 - [ ] Kontrollere `admins`-dokumenter og tenantisolasjon.
 - [ ] Review og deploye Firestore Rules.
 - [ ] Merge til `master` etter godkjent preview.
-- [ ] Deploye produksjonskanalene etter godkjent test.
+- [x] Deploye produksjonskanalene etter godkjent test.
 
 ## AppOwner og lisensiering
 
@@ -20,4 +20,5 @@
 - [x] Lage appOwner-panel for klubbaktivering, clubAdmin og lisensstatus.
 - [ ] Teste opprettelse/aktivering av én testklubb i preview.
 - [ ] Teste at clubAdmin ikke kan lese eller endre andre klubbers data.
+- [ ] Knytte en eksisterende Google-konto til test-`clubAdmin`.
 - [ ] Erstatte midlertidig e-post-bootstrap med eksplisitt owner-oppsett.
