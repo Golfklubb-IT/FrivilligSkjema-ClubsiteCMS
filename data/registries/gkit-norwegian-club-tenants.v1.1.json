@@ -1,0 +1,5225 @@
+{
+  "schemaVersion": "1.1.0",
+  "registryId": "gkit-norwegian-golf-club-tenants",
+  "title": "GKIT norsk klubb- og tenantregister",
+  "generatedAt": "2026-08-10",
+  "countryCode": "NO",
+  "source": {
+    "fileName": "Norske_Klubber_med_URL(1).csv",
+    "sha256": "A0A959ACB513561BB587315E2E927D8DB8297AA8136135FC52E1D0DD545BA207",
+    "officialClubRows": 168
+  },
+  "purpose": {
+    "description": "Versjonert identitetsregister for norske golfklubber, godkjente foreninger, shops og anlegg på tvers av GKIT-apper.",
+    "activationStateIncluded": false,
+    "activationStateRule": "Onboarding, lisens, aktiv/inaktiv status og app-roller skal lagres separat i hver apps tenantkonfigurasjon. Oppføring i dette registeret aktiverer ikke en klubb.",
+    "identityRule": "clubId og tenantKey skal behandles som stabile identiteter. Endringer skal versjoneres og ikke gjøres direkte i appkode."
+  },
+  "tenantKeyPolicy": {
+    "source": "normalized-club-name",
+    "norwegianTransliteration": {
+      "æ": "ae",
+      "ø": "o",
+      "å": "a"
+    },
+    "genericNameMappings": {
+      "Golfklubb": "gk",
+      "Golfklubben": "gk",
+      "Golf Club": "gc",
+      "Golfclub": "gc"
+    },
+    "allowedPattern": "^[a-z][a-z0-9]{1,63}$",
+    "routingPattern": "https://vtg-app.no/{tenantKey}"
+  },
+  "counts": {
+    "officialClubs": 168,
+    "demoTenants": 1,
+    "nonClubTenants": 6,
+    "totalTenants": 175
+  },
+  "validation": {
+    "uniqueClubIds": true,
+    "uniqueTenantKeys": true,
+    "demoIdCollision": false,
+    "duplicateWebsiteHosts": [
+      {
+        "host": "facebook.com",
+        "clubIds": [
+          204,
+          353,
+          362
+        ]
+      },
+      {
+        "host": "solagk.no",
+        "clubIds": [
+          56,
+          71
+        ]
+      }
+    ],
+    "socialUrlClubIds": [
+      204,
+      353,
+      362
+    ],
+    "missingUrlClubIds": [
+      306
+    ]
+  },
+  "tenants": [
+    {
+      "clubId": 1,
+      "officialClubId": 1,
+      "tenantKey": "oslogk",
+      "displayName": "Oslo Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1924,
+      "website": {
+        "url": "https://www.oslogk.no/",
+        "host": "oslogk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/oslogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 2
+      }
+    },
+    {
+      "clubId": 2,
+      "officialClubId": 2,
+      "tenantKey": "borregaardgk",
+      "displayName": "Borregaard Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1927,
+      "website": {
+        "url": "https://www.borregaardgk.no/",
+        "host": "borregaardgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/borregaardgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 3
+      },
+      "serverFolder": "BORREGAARD",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 3,
+      "officialClubId": 3,
+      "tenantKey": "bergengk",
+      "displayName": "Bergen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1937,
+      "website": {
+        "url": "https://www.bgk.no/",
+        "host": "bgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bergengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 4
+      }
+    },
+    {
+      "clubId": 4,
+      "officialClubId": 4,
+      "tenantKey": "trondheimgk",
+      "displayName": "Trondheim Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1950,
+      "website": {
+        "url": "https://www.golfklubben.no/",
+        "host": "golfklubben.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/trondheimgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 5
+      }
+    },
+    {
+      "clubId": 5,
+      "officialClubId": 5,
+      "tenantKey": "stavangergk",
+      "displayName": "Stavanger Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1956,
+      "website": {
+        "url": "https://www.sgk.no/",
+        "host": "sgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/stavangergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 6
+      }
+    },
+    {
+      "clubId": 6,
+      "officialClubId": 6,
+      "tenantKey": "vestfoldgk",
+      "displayName": "Vestfold Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1958,
+      "website": {
+        "url": "https://www.vgk.no/",
+        "host": "vgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/vestfoldgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 7
+      }
+    },
+    {
+      "clubId": 8,
+      "officialClubId": 8,
+      "tenantKey": "baerumgk",
+      "displayName": "Bærum Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1972,
+      "website": {
+        "url": "https://www.bmgk.no/",
+        "host": "bmgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/baerumgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 8
+      },
+      "serverFolder": "BARUM",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 9,
+      "officialClubId": 9,
+      "tenantKey": "kjekstadgk",
+      "displayName": "Kjekstad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1976,
+      "website": {
+        "url": "https://www.kjekstad-gk.no/",
+        "host": "kjekstad-gk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kjekstadgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 9
+      }
+    },
+    {
+      "clubId": 10,
+      "officialClubId": 10,
+      "tenantKey": "grenlandgk",
+      "displayName": "Grenland Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1976,
+      "website": {
+        "url": "https://grenlandgolf.no/",
+        "host": "grenlandgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/grenlandgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 10
+      }
+    },
+    {
+      "clubId": 11,
+      "officialClubId": 11,
+      "tenantKey": "elverumgk",
+      "displayName": "Elverum Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1993,
+      "website": {
+        "url": "https://www.elverumgolf.no/",
+        "host": "elverumgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/elverumgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 11
+      }
+    },
+    {
+      "clubId": 13,
+      "officialClubId": 13,
+      "tenantKey": "tyrifjordgk",
+      "displayName": "Tyrifjord Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1982,
+      "website": {
+        "url": "https://www.tyrifjord-golfklubb.no/",
+        "host": "tyrifjord-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/tyrifjordgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 12
+      }
+    },
+    {
+      "clubId": 14,
+      "officialClubId": 14,
+      "tenantKey": "oppegardgk",
+      "displayName": "Oppegård Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1985,
+      "website": {
+        "url": "https://www.opgk.no/",
+        "host": "opgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/oppegardgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 13
+      }
+    },
+    {
+      "clubId": 17,
+      "officialClubId": 17,
+      "tenantKey": "arendalogomegngk",
+      "displayName": "Arendal og Omegn Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1986,
+      "website": {
+        "url": "https://www.arendalgk.no/",
+        "host": "arendalgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/arendalogomegngk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 14
+      }
+    },
+    {
+      "clubId": 18,
+      "officialClubId": 18,
+      "tenantKey": "skjeberggk",
+      "displayName": "Skjeberg Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1986,
+      "website": {
+        "url": "https://www.skjeberg-golfklubb.no/",
+        "host": "skjeberg-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/skjeberggk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 15
+      }
+    },
+    {
+      "clubId": 20,
+      "officialClubId": 20,
+      "tenantKey": "onsoygk",
+      "displayName": "Onsøy Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1987,
+      "website": {
+        "url": "https://www.onsoygolfklubb.no/",
+        "host": "onsoygolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/onsoygk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 16
+      }
+    },
+    {
+      "clubId": 21,
+      "officialClubId": 21,
+      "tenantKey": "haugalandgk",
+      "displayName": "Haugaland Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1987,
+      "website": {
+        "url": "https://haugalandgolf.no/",
+        "host": "haugalandgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/haugalandgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 17
+      }
+    },
+    {
+      "clubId": 22,
+      "officialClubId": 22,
+      "tenantKey": "fanagk",
+      "displayName": "Fana Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.fanagolf.no/",
+        "host": "fanagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/fanagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 18
+      }
+    },
+    {
+      "clubId": 23,
+      "officialClubId": 23,
+      "tenantKey": "haugergk",
+      "displayName": "Hauger Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.hauger-golfklubb.no/",
+        "host": "hauger-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/haugergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 19
+      }
+    },
+    {
+      "clubId": 24,
+      "officialClubId": 24,
+      "tenantKey": "trysilgk",
+      "displayName": "Trysil Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.trysilgolf.no/",
+        "host": "trysilgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/trysilgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 20
+      }
+    },
+    {
+      "clubId": 27,
+      "officialClubId": 27,
+      "tenantKey": "oppdalgk",
+      "displayName": "Oppdal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.oppdalgolfklubb.no/",
+        "host": "oppdalgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/oppdalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 21
+      }
+    },
+    {
+      "clubId": 29,
+      "officialClubId": 29,
+      "tenantKey": "groruddalengk",
+      "displayName": "Groruddalen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.grorudgk.no/",
+        "host": "grorudgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/groruddalengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 22
+      }
+    },
+    {
+      "clubId": 30,
+      "officialClubId": 30,
+      "tenantKey": "drobakgk",
+      "displayName": "Drøbak Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.drobakgolf.no/",
+        "host": "drobakgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/drobakgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 23
+      }
+    },
+    {
+      "clubId": 32,
+      "officialClubId": 32,
+      "tenantKey": "grinigk",
+      "displayName": "Grini Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1988,
+      "website": {
+        "url": "https://www.grinigolfklubb.no/",
+        "host": "grinigolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/grinigk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 24
+      }
+    },
+    {
+      "clubId": 33,
+      "officialClubId": 33,
+      "tenantKey": "drammengk",
+      "displayName": "Drammen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.drammengk.no/",
+        "host": "drammengk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/drammengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 25
+      }
+    },
+    {
+      "clubId": 34,
+      "officialClubId": 34,
+      "tenantKey": "karmoygk",
+      "displayName": "Karmøy Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.karmoy-golfklubb.no/",
+        "host": "karmoy-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/karmoygk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 26
+      }
+    },
+    {
+      "clubId": 36,
+      "officialClubId": 36,
+      "tenantKey": "ostmarkagk",
+      "displayName": "Østmarka Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.ostmarkagolf.no/",
+        "host": "ostmarkagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ostmarkagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 27
+      }
+    },
+    {
+      "clubId": 37,
+      "officialClubId": 37,
+      "tenantKey": "borregk",
+      "displayName": "Borre Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.borregb.no/",
+        "host": "borregb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/borregk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 28
+      },
+      "serverFolder": "BORRE",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 38,
+      "officialClubId": 38,
+      "tenantKey": "mjosengk",
+      "displayName": "Mjøsen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.msgk.no/",
+        "host": "msgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/mjosengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 29
+      }
+    },
+    {
+      "clubId": 39,
+      "officialClubId": 39,
+      "tenantKey": "morkgk",
+      "displayName": "Mørk Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.morkgolf.no/",
+        "host": "morkgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/morkgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 30
+      }
+    },
+    {
+      "clubId": 41,
+      "officialClubId": 41,
+      "tenantKey": "haldengk",
+      "displayName": "Halden Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1990,
+      "website": {
+        "url": "https://www.haldengk.no/",
+        "host": "haldengk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/haldengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 31
+      }
+    },
+    {
+      "clubId": 42,
+      "officialClubId": 42,
+      "tenantKey": "larvikgk",
+      "displayName": "Larvik Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.larvikgolf.no/",
+        "host": "larvikgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/larvikgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 32
+      }
+    },
+    {
+      "clubId": 43,
+      "officialClubId": 43,
+      "tenantKey": "alesundgk",
+      "displayName": "Ålesund Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1990,
+      "website": {
+        "url": "https://aalesundgk.no/",
+        "host": "aalesundgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/alesundgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 33
+      }
+    },
+    {
+      "clubId": 44,
+      "officialClubId": 44,
+      "tenantKey": "sorknesgk",
+      "displayName": "Sorknes Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1990,
+      "website": {
+        "url": "https://sorknesgk.no/",
+        "host": "sorknesgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sorknesgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 34
+      }
+    },
+    {
+      "clubId": 46,
+      "officialClubId": 46,
+      "tenantKey": "moldegk",
+      "displayName": "Molde Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1990,
+      "website": {
+        "url": "https://www.moldegolf.no/",
+        "host": "moldegolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/moldegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 35
+      }
+    },
+    {
+      "clubId": 48,
+      "officialClubId": 48,
+      "tenantKey": "strandagk",
+      "displayName": "Stranda Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1991,
+      "website": {
+        "url": "https://www.strandagolf.no/",
+        "host": "strandagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/strandagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 36
+      }
+    },
+    {
+      "clubId": 50,
+      "officialClubId": 50,
+      "tenantKey": "lofotengk",
+      "displayName": "Lofoten Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1991,
+      "website": {
+        "url": "https://lofotenlinks.no/",
+        "host": "lofotenlinks.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/lofotengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 37
+      }
+    },
+    {
+      "clubId": 51,
+      "officialClubId": 51,
+      "tenantKey": "stiklestadgk",
+      "displayName": "Stiklestad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1991,
+      "website": {
+        "url": "https://www.stiklestad-golfklubb.no/",
+        "host": "stiklestad-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/stiklestadgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 38
+      }
+    },
+    {
+      "clubId": 53,
+      "officialClubId": 53,
+      "tenantKey": "mossryggegk",
+      "displayName": "Moss & Rygge Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1991,
+      "website": {
+        "url": "https://www.evjegolf.no/",
+        "host": "evjegolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/mossryggegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 39
+      }
+    },
+    {
+      "clubId": 54,
+      "officialClubId": 54,
+      "tenantKey": "kristiansundogomegngk",
+      "displayName": "Kristiansund og Omegn Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1991,
+      "website": {
+        "url": "https://www.kristiansund-golfklubb.no/",
+        "host": "kristiansund-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kristiansundogomegngk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 40
+      }
+    },
+    {
+      "clubId": 56,
+      "officialClubId": 56,
+      "tenantKey": "solastrandengk",
+      "displayName": "Solastranden Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.solagk.no/",
+        "host": "solagk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/solastrandengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 41
+      }
+    },
+    {
+      "clubId": 57,
+      "officialClubId": 57,
+      "tenantKey": "askergk",
+      "displayName": "Asker Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.askergolf.no/",
+        "host": "askergolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/askergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 42
+      }
+    },
+    {
+      "clubId": 58,
+      "officialClubId": 58,
+      "tenantKey": "sunnfjordgk",
+      "displayName": "Sunnfjord Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.sunnfjordgk.no/",
+        "host": "sunnfjordgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sunnfjordgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 43
+      }
+    },
+    {
+      "clubId": 59,
+      "officialClubId": 59,
+      "tenantKey": "kongsberggk",
+      "displayName": "Kongsberg Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1991,
+      "website": {
+        "url": "https://kongsberggolf.no/",
+        "host": "kongsberggolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kongsberggk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 44
+      }
+    },
+    {
+      "clubId": 60,
+      "officialClubId": 60,
+      "tenantKey": "saltengk",
+      "displayName": "Salten Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.bodogolfpark.no/",
+        "host": "bodogolfpark.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/saltengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 45
+      }
+    },
+    {
+      "clubId": 63,
+      "officialClubId": 63,
+      "tenantKey": "narvikgk",
+      "displayName": "Narvik Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.narvikgolf.no/",
+        "host": "narvikgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/narvikgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 46
+      }
+    },
+    {
+      "clubId": 65,
+      "officialClubId": 65,
+      "tenantKey": "ballerudgk",
+      "displayName": "Ballerud Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.ballerud.no/",
+        "host": "ballerud.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ballerudgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 47
+      }
+    },
+    {
+      "clubId": 66,
+      "officialClubId": 66,
+      "tenantKey": "mandalgk",
+      "displayName": "Mandal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1993,
+      "website": {
+        "url": "https://www.mandalgk.no/",
+        "host": "mandalgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/mandalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 48
+      }
+    },
+    {
+      "clubId": 67,
+      "officialClubId": 67,
+      "tenantKey": "harstadgk",
+      "displayName": "Harstad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1986,
+      "website": {
+        "url": "https://hgolf.no/",
+        "host": "hgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/harstadgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 49
+      }
+    },
+    {
+      "clubId": 68,
+      "officialClubId": 68,
+      "tenantKey": "hallingdalgk",
+      "displayName": "Hallingdal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1993,
+      "website": {
+        "url": "https://hallingdalgolfklubb.no/",
+        "host": "hallingdalgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hallingdalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 50
+      }
+    },
+    {
+      "clubId": 69,
+      "officialClubId": 69,
+      "tenantKey": "norefjellgk",
+      "displayName": "Norefjell Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1993,
+      "website": {
+        "url": "https://www.norefjell-golf.no/",
+        "host": "norefjell-golf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/norefjellgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 51
+      }
+    },
+    {
+      "clubId": 70,
+      "officialClubId": 70,
+      "tenantKey": "stordgk",
+      "displayName": "Stord Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.stordgolf.com/",
+        "host": "stordgolf.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/stordgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 52
+      }
+    },
+    {
+      "clubId": 71,
+      "officialClubId": 71,
+      "tenantKey": "solagk",
+      "displayName": "Sola Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1993,
+      "website": {
+        "url": "https://www.solagk.no/",
+        "host": "solagk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/solagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 53
+      },
+      "serverFolder": "SOLA",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 72,
+      "officialClubId": 72,
+      "tenantKey": "losbygk",
+      "displayName": "Losby Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1994,
+      "website": {
+        "url": "https://www.losby.no/",
+        "host": "losby.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/losbygk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 54
+      }
+    },
+    {
+      "clubId": 73,
+      "officialClubId": 73,
+      "tenantKey": "skigk",
+      "displayName": "Ski Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1994,
+      "website": {
+        "url": "https://skigk.no/",
+        "host": "skigk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/skigk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 55
+      },
+      "serverFolder": "SKI",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 75,
+      "officialClubId": 75,
+      "tenantKey": "hemsedalgk",
+      "displayName": "Hemsedal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1994,
+      "website": {
+        "url": "https://hemsedalgolfklubb.no/",
+        "host": "hemsedalgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hemsedalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 56
+      }
+    },
+    {
+      "clubId": 76,
+      "officialClubId": 76,
+      "tenantKey": "bjornefjordengk",
+      "displayName": "Bjørnefjorden Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1994,
+      "website": {
+        "url": "https://www.bjgk.no/",
+        "host": "bjgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bjornefjordengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 57
+      }
+    },
+    {
+      "clubId": 77,
+      "officialClubId": 77,
+      "tenantKey": "gronmogk",
+      "displayName": "Grønmo Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.gronmogk.no/",
+        "host": "gronmogk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/gronmogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 58
+      }
+    },
+    {
+      "clubId": 79,
+      "officialClubId": 79,
+      "tenantKey": "skeigk",
+      "displayName": "Skei Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.skeigolf.no/",
+        "host": "skeigolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/skeigk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 59
+      }
+    },
+    {
+      "clubId": 80,
+      "officialClubId": 80,
+      "tenantKey": "bynesetgk",
+      "displayName": "Byneset Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.bynesetgolf.no/",
+        "host": "bynesetgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bynesetgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 60
+      }
+    },
+    {
+      "clubId": 81,
+      "officialClubId": 81,
+      "tenantKey": "rorosgk",
+      "displayName": "Røros Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.rorosgolf.no/",
+        "host": "rorosgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/rorosgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 61
+      }
+    },
+    {
+      "clubId": 82,
+      "officialClubId": 82,
+      "tenantKey": "melandgk",
+      "displayName": "Meland Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.melandgolf.no/",
+        "host": "melandgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/melandgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 62
+      }
+    },
+    {
+      "clubId": 83,
+      "officialClubId": 83,
+      "tenantKey": "utsiktengk",
+      "displayName": "Utsikten Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://utsiktengolf.no/",
+        "host": "utsiktengolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/utsiktengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 63
+      }
+    },
+    {
+      "clubId": 85,
+      "officialClubId": 85,
+      "tenantKey": "jaerengk",
+      "displayName": "Jæren Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.jgk.no/",
+        "host": "jgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/jaerengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 64
+      }
+    },
+    {
+      "clubId": 86,
+      "officialClubId": 86,
+      "tenantKey": "krokholgk",
+      "displayName": "Krokhol Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.krokholgolf.no/",
+        "host": "krokholgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/krokholgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 65
+      }
+    },
+    {
+      "clubId": 88,
+      "officialClubId": 88,
+      "tenantKey": "stjordalgk",
+      "displayName": "Stjørdal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1996,
+      "website": {
+        "url": "https://stjordal.golf/",
+        "host": "stjordal.golf",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/stjordalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 66
+      }
+    },
+    {
+      "clubId": 90,
+      "officialClubId": 90,
+      "tenantKey": "tromsogk",
+      "displayName": "Tromsø Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 1996,
+      "website": {
+        "url": "https://tromsogolf.com/",
+        "host": "tromsogolf.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/tromsogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 67
+      }
+    },
+    {
+      "clubId": 91,
+      "officialClubId": 91,
+      "tenantKey": "sandefjordgk",
+      "displayName": "Sandefjord Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1995,
+      "website": {
+        "url": "https://www.sandefjordgolf.no/",
+        "host": "sandefjordgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sandefjordgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 68
+      }
+    },
+    {
+      "clubId": 92,
+      "officialClubId": 92,
+      "tenantKey": "hofgk",
+      "displayName": "Hof Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1996,
+      "website": {
+        "url": "https://hofgolfklubb.no/",
+        "host": "hofgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hofgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 69
+      }
+    },
+    {
+      "clubId": 93,
+      "officialClubId": 93,
+      "tenantKey": "oddagk",
+      "displayName": "Odda Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1996,
+      "website": {
+        "url": "https://www.oddagolfklubb.no/",
+        "host": "oddagolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/oddagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 70
+      }
+    },
+    {
+      "clubId": 94,
+      "officialClubId": 94,
+      "tenantKey": "askimgk",
+      "displayName": "Askim Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.askimgk.no/",
+        "host": "askimgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/askimgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 71
+      }
+    },
+    {
+      "clubId": 95,
+      "officialClubId": 95,
+      "tenantKey": "gjovikogtotengk",
+      "displayName": "Gjøvik og Toten Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://gtgk.no/",
+        "host": "gtgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/gjovikogtotengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 72
+      },
+      "serverFolder": "GJOVIKTOTEN",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 96,
+      "officialClubId": 96,
+      "tenantKey": "northcapegc",
+      "displayName": "North Cape Golfclub",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.northcape-golfclub.no/",
+        "host": "northcape-golfclub.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/northcapegc",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 73
+      }
+    },
+    {
+      "clubId": 97,
+      "officialClubId": 97,
+      "tenantKey": "haugesundgk",
+      "displayName": "Haugesund Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.haugesundgolf.no/",
+        "host": "haugesundgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/haugesundgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 74
+      }
+    },
+    {
+      "clubId": 98,
+      "officialClubId": 98,
+      "tenantKey": "helgelandgk",
+      "displayName": "Helgeland Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.helgelandgolfklubb.no/",
+        "host": "helgelandgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/helgelandgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 75
+      }
+    },
+    {
+      "clubId": 100,
+      "officialClubId": 100,
+      "tenantKey": "seljegk",
+      "displayName": "Selje Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.seljegolfklubb.no/",
+        "host": "seljegolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/seljegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 76
+      }
+    },
+    {
+      "clubId": 101,
+      "officialClubId": 101,
+      "tenantKey": "valdresgk",
+      "displayName": "Valdres Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.valdresgolf.no/",
+        "host": "valdresgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/valdresgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 77
+      }
+    },
+    {
+      "clubId": 102,
+      "officialClubId": 102,
+      "tenantKey": "preikestolengk",
+      "displayName": "Preikestolen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.prgk.no/",
+        "host": "prgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/preikestolengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 78
+      }
+    },
+    {
+      "clubId": 104,
+      "officialClubId": 104,
+      "tenantKey": "soongk",
+      "displayName": "Soon Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.soongolf.no/",
+        "host": "soongolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/soongk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 79
+      }
+    },
+    {
+      "clubId": 105,
+      "officialClubId": 105,
+      "tenantKey": "randaberggk",
+      "displayName": "Randaberg golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.randaberg-golf.no/",
+        "host": "randaberg-golf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/randaberggk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 80
+      }
+    },
+    {
+      "clubId": 106,
+      "officialClubId": 106,
+      "tenantKey": "raumagk",
+      "displayName": "Rauma Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.raumagolf.no/",
+        "host": "raumagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/raumagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 81
+      }
+    },
+    {
+      "clubId": 108,
+      "officialClubId": 108,
+      "tenantKey": "vossgk",
+      "displayName": "Voss Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.vossgolf.no/",
+        "host": "vossgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/vossgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 82
+      }
+    },
+    {
+      "clubId": 109,
+      "officialClubId": 109,
+      "tenantKey": "bamblegk",
+      "displayName": "Bamble Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.bamblegolfklubb.no/",
+        "host": "bamblegolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bamblegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 83
+      }
+    },
+    {
+      "clubId": 112,
+      "officialClubId": 112,
+      "tenantKey": "sandegk",
+      "displayName": "Sande Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.sandegk.no/",
+        "host": "sandegk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sandegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 84
+      },
+      "serverFolder": "SANDE",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 114,
+      "officialClubId": 114,
+      "tenantKey": "kragerogk",
+      "displayName": "Kragerø Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.kragk.no/",
+        "host": "kragk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kragerogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 85
+      }
+    },
+    {
+      "clubId": 115,
+      "officialClubId": 115,
+      "tenantKey": "vanylvengk",
+      "displayName": "Vanylven Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.vangolf.no/",
+        "host": "vangolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/vanylvengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 86
+      }
+    },
+    {
+      "clubId": 116,
+      "officialClubId": 116,
+      "tenantKey": "lillestromgk",
+      "displayName": "Lillestrøm Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.lilgk.no/",
+        "host": "lilgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/lillestromgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 87
+      }
+    },
+    {
+      "clubId": 117,
+      "officialClubId": 117,
+      "tenantKey": "polarsirkelengolf",
+      "displayName": "Polarsirkelen Golf",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.polarsirkelen-golf.no/",
+        "host": "polarsirkelen-golf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/polarsirkelengolf",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 88
+      }
+    },
+    {
+      "clubId": 118,
+      "officialClubId": 118,
+      "tenantKey": "sunndalgk",
+      "displayName": "Sunndal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.sunndal-golfklubb.no/",
+        "host": "sunndal-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sunndalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 89
+      }
+    },
+    {
+      "clubId": 120,
+      "officialClubId": 120,
+      "tenantKey": "vesteralengk",
+      "displayName": "Vesterålen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.vesteraalengolf.no/",
+        "host": "vesteraalengolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/vesteralengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 90
+      }
+    },
+    {
+      "clubId": 121,
+      "officialClubId": 121,
+      "tenantKey": "hammerfestogkvalsundgk",
+      "displayName": "Hammerfest og Kvalsund Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.hammerfestgolf.no/",
+        "host": "hammerfestgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hammerfestogkvalsundgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 91
+      }
+    },
+    {
+      "clubId": 123,
+      "officialClubId": 123,
+      "tenantKey": "sandanegk",
+      "displayName": "Sandane Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.sandanegolf.no/",
+        "host": "sandanegolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sandanegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 92
+      }
+    },
+    {
+      "clubId": 124,
+      "officialClubId": 124,
+      "tenantKey": "romerikegk",
+      "displayName": "Romerike Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.romerikegk.no/",
+        "host": "romerikegk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/romerikegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 93
+      }
+    },
+    {
+      "clubId": 125,
+      "officialClubId": 125,
+      "tenantKey": "nordfjordgk",
+      "displayName": "Nordfjord Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.norgolf.com/",
+        "host": "norgolf.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/nordfjordgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 94
+      }
+    },
+    {
+      "clubId": 126,
+      "officialClubId": 126,
+      "tenantKey": "kvinnheradgk",
+      "displayName": "Kvinnherad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.golfen.no/",
+        "host": "golfen.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kvinnheradgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 95
+      }
+    },
+    {
+      "clubId": 127,
+      "officialClubId": 127,
+      "tenantKey": "namsosgk",
+      "displayName": "Namsos Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.namsosgolf.no/",
+        "host": "namsosgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/namsosgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 96
+      }
+    },
+    {
+      "clubId": 129,
+      "officialClubId": 129,
+      "tenantKey": "grimstadgk",
+      "displayName": "Grimstad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.grigk.no/",
+        "host": "grigk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/grimstadgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 97
+      }
+    },
+    {
+      "clubId": 130,
+      "officialClubId": 130,
+      "tenantKey": "laerdalgk",
+      "displayName": "Lærdal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.legk.no/",
+        "host": "legk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/laerdalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 98
+      }
+    },
+    {
+      "clubId": 132,
+      "officialClubId": 132,
+      "tenantKey": "notteroygk",
+      "displayName": "Nøtterøy Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.notteroygolf.no/",
+        "host": "notteroygolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/notteroygk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 99
+      }
+    },
+    {
+      "clubId": 134,
+      "officialClubId": 134,
+      "tenantKey": "eikergk",
+      "displayName": "Eiker Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://eikergolf.no/",
+        "host": "eikergolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/eikergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 100
+      }
+    },
+    {
+      "clubId": 135,
+      "officialClubId": 135,
+      "tenantKey": "namdalgk",
+      "displayName": "Namdal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.namdal-golfklubb.no/",
+        "host": "namdal-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/namdalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 101
+      }
+    },
+    {
+      "clubId": 136,
+      "officialClubId": 136,
+      "tenantKey": "miklagardgk",
+      "displayName": "Miklagard Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://miklagardgolf.no/",
+        "host": "miklagardgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/miklagardgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 102
+      }
+    },
+    {
+      "clubId": 139,
+      "officialClubId": 139,
+      "tenantKey": "selbugk",
+      "displayName": "Selbu Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://selbugolfklubb.no/",
+        "host": "selbugolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/selbugk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 103
+      }
+    },
+    {
+      "clubId": 142,
+      "officialClubId": 142,
+      "tenantKey": "tonsberggk",
+      "displayName": "Tønsberg Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://tonsberggolf.no/",
+        "host": "tonsberggolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/tonsberggk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 104
+      }
+    },
+    {
+      "clubId": 146,
+      "officialClubId": 146,
+      "tenantKey": "dalanegk",
+      "displayName": "Dalane Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.dalane-golfklubb.no/",
+        "host": "dalane-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/dalanegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 105
+      }
+    },
+    {
+      "clubId": 147,
+      "officialClubId": 147,
+      "tenantKey": "naeroysundgk",
+      "displayName": "Nærøysund Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://naroysundgolf.no/",
+        "host": "naroysundgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/naeroysundgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 106
+      }
+    },
+    {
+      "clubId": 148,
+      "officialClubId": 148,
+      "tenantKey": "gamlefredrikstadgk",
+      "displayName": "Gamle Fredrikstad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://gfgk.no/",
+        "host": "gfgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/gamlefredrikstadgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 107
+      },
+      "serverFolder": "FREDRIKSTAD",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 149,
+      "officialClubId": 149,
+      "tenantKey": "gjersjoengk",
+      "displayName": "Gjersjøen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.gjersjoengolf.no/",
+        "host": "gjersjoengolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/gjersjoengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 108
+      }
+    },
+    {
+      "clubId": 150,
+      "officialClubId": 150,
+      "tenantKey": "steinkjergk",
+      "displayName": "Steinkjer Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.steinkjer-golfklubb.no/",
+        "host": "steinkjer-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/steinkjergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 109
+      }
+    },
+    {
+      "clubId": 151,
+      "officialClubId": 151,
+      "tenantKey": "rjukangk",
+      "displayName": "Rjukan Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://rjukangolf.no/",
+        "host": "rjukangolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/rjukangk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 110
+      }
+    },
+    {
+      "clubId": 152,
+      "officialClubId": 152,
+      "tenantKey": "fetgk",
+      "displayName": "Fet Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.fetgk.no/",
+        "host": "fetgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/fetgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 111
+      }
+    },
+    {
+      "clubId": 161,
+      "officialClubId": 161,
+      "tenantKey": "alstengk",
+      "displayName": "Alsten Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.alstengolf.no/",
+        "host": "alstengolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/alstengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 112
+      }
+    },
+    {
+      "clubId": 162,
+      "officialClubId": 162,
+      "tenantKey": "hovdengk",
+      "displayName": "Hovden Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.hovdengolf.com/",
+        "host": "hovdengolf.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hovdengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 113
+      }
+    },
+    {
+      "clubId": 164,
+      "officialClubId": 164,
+      "tenantKey": "frostagk",
+      "displayName": "Frosta Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.frostagk.no/",
+        "host": "frostagk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/frostagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 114
+      }
+    },
+    {
+      "clubId": 165,
+      "officialClubId": 165,
+      "tenantKey": "giskegk",
+      "displayName": "Giske Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.giskegolf.no/",
+        "host": "giskegolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/giskegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 115
+      }
+    },
+    {
+      "clubId": 166,
+      "officialClubId": 166,
+      "tenantKey": "voldagk",
+      "displayName": "Volda Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1998,
+      "website": {
+        "url": "https://www.voldagolf.no/",
+        "host": "voldagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/voldagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 116
+      }
+    },
+    {
+      "clubId": 168,
+      "officialClubId": 168,
+      "tenantKey": "smolagk",
+      "displayName": "Smøla Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.smolagolfklubb.no/",
+        "host": "smolagolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/smolagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 117
+      }
+    },
+    {
+      "clubId": 169,
+      "officialClubId": 169,
+      "tenantKey": "ringerikegk",
+      "displayName": "Ringerike Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.ringerikegk.no/",
+        "host": "ringerikegk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ringerikegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 118
+      }
+    },
+    {
+      "clubId": 170,
+      "officialClubId": 170,
+      "tenantKey": "hitragk",
+      "displayName": "Hitra Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.hitragolf.no/",
+        "host": "hitragolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hitragk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 119
+      }
+    },
+    {
+      "clubId": 172,
+      "officialClubId": 172,
+      "tenantKey": "herdlagk",
+      "displayName": "Herdla Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.herdlagk.no/",
+        "host": "herdlagk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/herdlagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 120
+      }
+    },
+    {
+      "clubId": 175,
+      "officialClubId": 175,
+      "tenantKey": "egersundgk",
+      "displayName": "Egersund Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.egersund-golfklubb.no/",
+        "host": "egersund-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/egersundgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 121
+      }
+    },
+    {
+      "clubId": 177,
+      "officialClubId": 177,
+      "tenantKey": "hakadalgk",
+      "displayName": "Hakadal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.hakadalgolf.no/",
+        "host": "hakadalgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hakadalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 122
+      }
+    },
+    {
+      "clubId": 180,
+      "officialClubId": 180,
+      "tenantKey": "hafjellgk",
+      "displayName": "Hafjell Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.hafjellgolf.no/",
+        "host": "hafjellgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hafjellgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 123
+      }
+    },
+    {
+      "clubId": 182,
+      "officialClubId": 182,
+      "tenantKey": "saudagk",
+      "displayName": "Sauda Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.saudagolf.no/",
+        "host": "saudagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/saudagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 124
+      }
+    },
+    {
+      "clubId": 185,
+      "officialClubId": 185,
+      "tenantKey": "lommedalengk",
+      "displayName": "Lommedalen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.lommedalengk.no/",
+        "host": "lommedalengk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/lommedalengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 125
+      }
+    },
+    {
+      "clubId": 188,
+      "officialClubId": 188,
+      "tenantKey": "ullensakergk",
+      "displayName": "Ullensaker Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://ullensaker-golfklubb.no/",
+        "host": "ullensaker-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ullensakergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 126
+      }
+    },
+    {
+      "clubId": 189,
+      "officialClubId": 189,
+      "tenantKey": "ognagk",
+      "displayName": "Ogna Golf Klubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://ognagolf.no/",
+        "host": "ognagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ognagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 127
+      }
+    },
+    {
+      "clubId": 190,
+      "officialClubId": 190,
+      "tenantKey": "karasjokgk",
+      "displayName": "Karasjok Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://karasjokgolf.no/",
+        "host": "karasjokgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/karasjokgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 128
+      }
+    },
+    {
+      "clubId": 191,
+      "officialClubId": 191,
+      "tenantKey": "klaebugk",
+      "displayName": "Klæbu Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://www.klabugolf.no/",
+        "host": "klabugolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/klaebugk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 129
+      }
+    },
+    {
+      "clubId": 192,
+      "officialClubId": 192,
+      "tenantKey": "midttromsgk",
+      "displayName": "Midt-Troms Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.midttromsgolf.no/",
+        "host": "midttromsgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/midttromsgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 130
+      }
+    },
+    {
+      "clubId": 194,
+      "officialClubId": 194,
+      "tenantKey": "hardangergk",
+      "displayName": "Hardanger Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://hardangergolfklubb.no/",
+        "host": "hardangergolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hardangergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 131
+      }
+    },
+    {
+      "clubId": 195,
+      "officialClubId": 195,
+      "tenantKey": "hvamgk",
+      "displayName": "Hvam Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://hvamgolfklubb.no/",
+        "host": "hvamgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hvamgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 132
+      }
+    },
+    {
+      "clubId": 198,
+      "officialClubId": 198,
+      "tenantKey": "varangergk",
+      "displayName": "Varanger Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.varangergolf.no/",
+        "host": "varangergolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/varangergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 133
+      }
+    },
+    {
+      "clubId": 199,
+      "officialClubId": 199,
+      "tenantKey": "hvalergk",
+      "displayName": "Hvaler Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9, 6",
+        "layouts": [
+          9,
+          6
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.hvalergk.no/",
+        "host": "hvalergk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hvalergk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 134
+      }
+    },
+    {
+      "clubId": 201,
+      "officialClubId": 201,
+      "tenantKey": "tjomegk",
+      "displayName": "Tjøme Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.tjomegolfklubb.no/",
+        "host": "tjomegolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/tjomegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 135
+      }
+    },
+    {
+      "clubId": 202,
+      "officialClubId": 202,
+      "tenantKey": "sunnmoregk",
+      "displayName": "Sunnmøre Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1989,
+      "website": {
+        "url": "https://www.sunnmoregolf.no/",
+        "host": "sunnmoregolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sunnmoregk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 136
+      }
+    },
+    {
+      "clubId": 204,
+      "officialClubId": 204,
+      "tenantKey": "ryggeflystasjongc",
+      "displayName": "Rygge Flystasjon Golf Club",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 1996,
+      "website": {
+        "url": "https://www.facebook.com/groups/519352371542629/",
+        "host": "facebook.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ryggeflystasjongc",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 137
+      }
+    },
+    {
+      "clubId": 302,
+      "officialClubId": 302,
+      "tenantKey": "gjerdrumgk",
+      "displayName": "Gjerdrum Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.gjerdrumgolfklubb.no/",
+        "host": "gjerdrumgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/gjerdrumgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 138
+      }
+    },
+    {
+      "clubId": 303,
+      "officialClubId": 303,
+      "tenantKey": "sotragk",
+      "displayName": "Sotra Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.sotragk.no/",
+        "host": "sotragk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sotragk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 139
+      }
+    },
+    {
+      "clubId": 305,
+      "officialClubId": 305,
+      "tenantKey": "nesbyengk",
+      "displayName": "Nesbyen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.nesfjelletgolf.no/",
+        "host": "nesfjelletgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/nesbyengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 140
+      }
+    },
+    {
+      "clubId": 306,
+      "officialClubId": 306,
+      "tenantKey": "lonnegk",
+      "displayName": "Lønne Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": null,
+        "host": null,
+        "sourceStatus": "missing"
+      },
+      "routing": {
+        "primaryPath": "/lonnegk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 141
+      }
+    },
+    {
+      "clubId": 307,
+      "officialClubId": 307,
+      "tenantKey": "husoygk",
+      "displayName": "Husøy Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1999,
+      "website": {
+        "url": "https://www.hotellborge.no/husoy-golfklubb",
+        "host": "hotellborge.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/husoygk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 142
+      }
+    },
+    {
+      "clubId": 308,
+      "officialClubId": 308,
+      "tenantKey": "hagagk",
+      "displayName": "Haga Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2002,
+      "website": {
+        "url": "https://www.hagagolf.no/",
+        "host": "hagagolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hagagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 143
+      }
+    },
+    {
+      "clubId": 312,
+      "officialClubId": 312,
+      "tenantKey": "solumgk",
+      "displayName": "Solum golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 2003,
+      "website": {
+        "url": "https://www.solumgolf.no/",
+        "host": "solumgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/solumgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 144
+      }
+    },
+    {
+      "clubId": 315,
+      "officialClubId": 315,
+      "tenantKey": "husebyhankogk",
+      "displayName": "Huseby & Hankø Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2003,
+      "website": {
+        "url": "https://www.hhg.no/",
+        "host": "hhg.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/husebyhankogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 145
+      }
+    },
+    {
+      "clubId": 316,
+      "officialClubId": 316,
+      "tenantKey": "kristiansandgk",
+      "displayName": "Kristiansand Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1973,
+      "website": {
+        "url": "https://www.kristiansandgk.no/",
+        "host": "kristiansandgk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kristiansandgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 146
+      }
+    },
+    {
+      "clubId": 317,
+      "officialClubId": 317,
+      "tenantKey": "bjaavanngk",
+      "displayName": "Bjaavann Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 2003,
+      "website": {
+        "url": "https://www.bjaavanngk.no/",
+        "host": "bjaavanngk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bjaavanngk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 147
+      }
+    },
+    {
+      "clubId": 319,
+      "officialClubId": 319,
+      "tenantKey": "atlungstadgk",
+      "displayName": "Atlungstad Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2003,
+      "website": {
+        "url": "https://atlungstadgolf.no/",
+        "host": "atlungstadgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/atlungstadgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 148
+      }
+    },
+    {
+      "clubId": 320,
+      "officialClubId": 320,
+      "tenantKey": "nordvegengk",
+      "displayName": "Nordvegen Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 2003,
+      "website": {
+        "url": "https://nordvegengolf.no/",
+        "host": "nordvegengolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/nordvegengk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 149
+      }
+    },
+    {
+      "clubId": 322,
+      "officialClubId": 322,
+      "tenantKey": "holtsmarkgk",
+      "displayName": "Holtsmark Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2003,
+      "website": {
+        "url": "https://www.holtsmarkgolf.no/",
+        "host": "holtsmarkgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/holtsmarkgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 150
+      }
+    },
+    {
+      "clubId": 330,
+      "officialClubId": 330,
+      "tenantKey": "surnadalgk",
+      "displayName": "Surnadal Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2000,
+      "website": {
+        "url": "https://www.surnadal-golfklubb.no/",
+        "host": "surnadal-golfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/surnadalgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 151
+      }
+    },
+    {
+      "clubId": 332,
+      "officialClubId": 332,
+      "tenantKey": "austrattgk",
+      "displayName": "Austrått Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 1997,
+      "website": {
+        "url": "https://www.austraattgolf.no/",
+        "host": "austraattgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/austrattgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 152
+      }
+    },
+    {
+      "clubId": 335,
+      "officialClubId": 335,
+      "tenantKey": "tysnesgk",
+      "displayName": "Tysnes Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2005,
+      "website": {
+        "url": "https://www.tysnesgolf.no/",
+        "host": "tysnesgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/tysnesgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 153
+      }
+    },
+    {
+      "clubId": 336,
+      "officialClubId": 336,
+      "tenantKey": "sirdalfjellgolfklubb",
+      "displayName": "Sirdal Fjellgolf Klubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2001,
+      "website": {
+        "url": "https://sirdalfjellgolf.no/",
+        "host": "sirdalfjellgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sirdalfjellgolfklubb",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 154
+      }
+    },
+    {
+      "clubId": 339,
+      "officialClubId": 339,
+      "tenantKey": "sandnesgk",
+      "displayName": "Sandnes Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 2004,
+      "website": {
+        "url": "https://www.sandnesgolfklubb.no/",
+        "host": "sandnesgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/sandnesgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 155
+      }
+    },
+    {
+      "clubId": 340,
+      "officialClubId": 340,
+      "tenantKey": "bodogk",
+      "displayName": "Bodø Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2005,
+      "website": {
+        "url": "https://www.bodogolfklubb.no/",
+        "host": "bodogolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bodogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 156
+      }
+    },
+    {
+      "clubId": 343,
+      "officialClubId": 343,
+      "tenantKey": "altagk",
+      "displayName": "Alta Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2005,
+      "website": {
+        "url": "https://www.altagolfklubb.no/",
+        "host": "altagolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/altagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 157
+      }
+    },
+    {
+      "clubId": 344,
+      "officialClubId": 344,
+      "tenantKey": "ekholtbruketgk",
+      "displayName": "Ekholtbruket Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2005,
+      "website": {
+        "url": "https://www.ekholtgolf.no/",
+        "host": "ekholtgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/ekholtbruketgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 158
+      }
+    },
+    {
+      "clubId": 348,
+      "officialClubId": 348,
+      "tenantKey": "tingvollgk",
+      "displayName": "Tingvoll Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2006,
+      "website": {
+        "url": "https://www.tingvollgolf.no/",
+        "host": "tingvollgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/tingvollgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 159
+      }
+    },
+    {
+      "clubId": 350,
+      "officialClubId": 350,
+      "tenantKey": "norsjogk",
+      "displayName": "Norsjø Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 1992,
+      "website": {
+        "url": "https://www.golfparken.no/",
+        "host": "golfparken.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/norsjogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 160
+      }
+    },
+    {
+      "clubId": 351,
+      "officialClubId": 351,
+      "tenantKey": "florogk",
+      "displayName": "Florø Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2007,
+      "website": {
+        "url": "https://florogolf.no/",
+        "host": "florogolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/florogk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 161
+      }
+    },
+    {
+      "clubId": 353,
+      "officialClubId": 353,
+      "tenantKey": "veierlandgk",
+      "displayName": "Veierland Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "6",
+        "layouts": [
+          6
+        ]
+      },
+      "foundedYear": 2008,
+      "website": {
+        "url": "https://www.facebook.com/Veierlandgolfklubb/?locale=nb_NO",
+        "host": "facebook.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/veierlandgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 162
+      }
+    },
+    {
+      "clubId": 354,
+      "officialClubId": 354,
+      "tenantKey": "nesgk",
+      "displayName": "Nes Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 6",
+        "layouts": [
+          18,
+          6
+        ]
+      },
+      "foundedYear": 2009,
+      "website": {
+        "url": "https://nesgolf.no/",
+        "host": "nesgolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/nesgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 163
+      },
+      "serverFolder": "NES",
+      "serverMappingConfirmed": true
+    },
+    {
+      "clubId": 355,
+      "officialClubId": 355,
+      "tenantKey": "landgk",
+      "displayName": "Land Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "12",
+        "layouts": [
+          12
+        ]
+      },
+      "foundedYear": 2010,
+      "website": {
+        "url": "https://www.landgolfklubb.no/",
+        "host": "landgolfklubb.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/landgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 164
+      }
+    },
+    {
+      "clubId": 359,
+      "officialClubId": 359,
+      "tenantKey": "nordhauggk",
+      "displayName": "Nordhaug Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2010,
+      "website": {
+        "url": "https://www.nordhauggk.no/",
+        "host": "nordhauggk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/nordhauggk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 165
+      }
+    },
+    {
+      "clubId": 362,
+      "officialClubId": 362,
+      "tenantKey": "bleikgolfstrombane",
+      "displayName": "Bleik Golfstrømbane",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "9",
+        "layouts": [
+          9
+        ]
+      },
+      "foundedYear": 2011,
+      "website": {
+        "url": "https://www.facebook.com/BleikGolf/",
+        "host": "facebook.com",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/bleikgolfstrombane",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 166
+      }
+    },
+    {
+      "clubId": 363,
+      "officialClubId": 363,
+      "tenantKey": "hinnoygk",
+      "displayName": "Hinnøy Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18",
+        "layouts": [
+          18
+        ]
+      },
+      "foundedYear": 2010,
+      "website": {
+        "url": "https://www.hinnøy-gk.no/",
+        "host": "hinnøy-gk.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/hinnoygk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 167
+      }
+    },
+    {
+      "clubId": 364,
+      "officialClubId": 364,
+      "tenantKey": "kongsvingersgk",
+      "displayName": "Kongsvingers Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "18, 9",
+        "layouts": [
+          18,
+          9
+        ]
+      },
+      "foundedYear": 2011,
+      "website": {
+        "url": "https://www.kongsvingergolf.no/",
+        "host": "kongsvingergolf.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/kongsvingersgk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 168
+      }
+    },
+    {
+      "clubId": 365,
+      "officialClubId": 365,
+      "tenantKey": "froyagk",
+      "displayName": "Frøya Golfklubb",
+      "registryType": "official",
+      "countryCode": "NO",
+      "isDemo": false,
+      "course": {
+        "sourceValue": "0",
+        "layouts": [
+          0
+        ]
+      },
+      "foundedYear": 2012,
+      "website": {
+        "url": "https://www.frøyaportalen.no/organisasjoner-lag-og-forreninger/2021/1/13/frya-golfklubb",
+        "host": "frøyaportalen.no",
+        "sourceStatus": "provided"
+      },
+      "routing": {
+        "primaryPath": "/froyagk",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": "Norske_Klubber_med_URL(1).csv",
+        "sourceRow": 169
+      }
+    },
+    {
+      "clubId": 999,
+      "officialClubId": null,
+      "tenantKey": "demo",
+      "displayName": "Demo Golfklubb",
+      "registryType": "demo",
+      "countryCode": "NO",
+      "isDemo": true,
+      "course": {
+        "sourceValue": null,
+        "layouts": []
+      },
+      "foundedYear": null,
+      "website": {
+        "url": null,
+        "host": null,
+        "sourceStatus": "not-applicable"
+      },
+      "routing": {
+        "primaryPath": "/demo",
+        "customDomain": null
+      },
+      "source": {
+        "sourceFile": null,
+        "sourceRow": null
+      }
+    }
+  ],
+  "nonClubTenants": [
+    {
+      "tenantKey": "fornebugolf",
+      "displayName": "FORNEBUGOLF",
+      "tenantType": "facility",
+      "registryType": "non-club",
+      "clubId": null,
+      "serverFolder": "FORNEBUGOLF",
+      "serverMappingConfirmed": true
+    },
+    {
+      "tenantKey": "gaf",
+      "displayName": "GAF",
+      "tenantType": "association",
+      "registryType": "non-club",
+      "clubId": null,
+      "serverFolder": "GAF",
+      "serverMappingConfirmed": true
+    },
+    {
+      "tenantKey": "golfbutikken",
+      "displayName": "GOLFBUTIKKEN",
+      "tenantType": "shop",
+      "registryType": "non-club",
+      "clubId": null,
+      "serverFolder": "GOLFBUTIKKEN",
+      "serverMappingConfirmed": true
+    },
+    {
+      "tenantKey": "iogolfsenter",
+      "displayName": "IOGOLFSENTER",
+      "tenantType": "facility",
+      "registryType": "non-club",
+      "clubId": null,
+      "serverFolder": "IOGOLFSENTER",
+      "serverMappingConfirmed": true
+    },
+    {
+      "tenantKey": "pganorway",
+      "displayName": "PGANORWAY",
+      "tenantType": "association",
+      "registryType": "non-club",
+      "clubId": null,
+      "serverFolder": "PGANORWAY",
+      "serverMappingConfirmed": true
+    },
+    {
+      "tenantKey": "toppgolf",
+      "displayName": "TOPPGOLF",
+      "tenantType": "facility",
+      "registryType": "non-club",
+      "clubId": null,
+      "serverFolder": "TOPPGOLF",
+      "serverMappingConfirmed": true
+    }
+  ],
+  "serverFolderMappings": [
+    {
+      "folderName": "SKI",
+      "clubId": 73,
+      "tenantKey": "skigk",
+      "tenantType": "club",
+      "displayName": "Ski Golfklubb",
+      "serverFolder": "SKI",
+      "registryMatch": true
+    },
+    {
+      "folderName": "BORRE",
+      "clubId": 37,
+      "tenantKey": "borregk",
+      "tenantType": "club",
+      "displayName": "Borre Golfklubb",
+      "serverFolder": "BORRE",
+      "registryMatch": true
+    },
+    {
+      "folderName": "BORREGAARD",
+      "clubId": 2,
+      "tenantKey": "borregaardgk",
+      "tenantType": "club",
+      "displayName": "Borregaard Golfklubb",
+      "serverFolder": "BORREGAARD",
+      "registryMatch": true
+    },
+    {
+      "folderName": "NES",
+      "clubId": 354,
+      "tenantKey": "nesgk",
+      "tenantType": "club",
+      "displayName": "Nes Golfklubb",
+      "serverFolder": "NES",
+      "registryMatch": true
+    },
+    {
+      "folderName": "SANDE",
+      "clubId": 112,
+      "tenantKey": "sandegk",
+      "tenantType": "club",
+      "displayName": "Sande Golfklubb",
+      "serverFolder": "SANDE",
+      "registryMatch": true
+    },
+    {
+      "folderName": "SOLA",
+      "clubId": 71,
+      "tenantKey": "solagk",
+      "tenantType": "club",
+      "displayName": "Sola Golfklubb",
+      "serverFolder": "SOLA",
+      "registryMatch": true
+    },
+    {
+      "folderName": "BARUM",
+      "clubId": 8,
+      "tenantKey": "baerumgk",
+      "tenantType": "club",
+      "displayName": "Bærum Golfklubb",
+      "serverFolder": "BARUM",
+      "registryMatch": true
+    },
+    {
+      "folderName": "FORNEBUGOLF",
+      "clubId": null,
+      "tenantKey": "fornebugolf",
+      "tenantType": "facility",
+      "displayName": "FORNEBUGOLF",
+      "serverFolder": "FORNEBUGOLF",
+      "registryMatch": false
+    },
+    {
+      "folderName": "FREDRIKSTAD",
+      "clubId": 148,
+      "tenantKey": "gamlefredrikstadgk",
+      "tenantType": "club",
+      "displayName": "Gamle Fredrikstad Golfklubb",
+      "serverFolder": "FREDRIKSTAD",
+      "registryMatch": true
+    },
+    {
+      "folderName": "GAF",
+      "clubId": null,
+      "tenantKey": "gaf",
+      "tenantType": "association",
+      "displayName": "GAF",
+      "serverFolder": "GAF",
+      "registryMatch": false
+    },
+    {
+      "folderName": "GJOVIKTOTEN",
+      "clubId": 95,
+      "tenantKey": "gjovikogtotengk",
+      "tenantType": "club",
+      "displayName": "Gjøvik og Toten Golfklubb",
+      "serverFolder": "GJOVIKTOTEN",
+      "registryMatch": true
+    },
+    {
+      "folderName": "GOLFBUTIKKEN",
+      "clubId": null,
+      "tenantKey": "golfbutikken",
+      "tenantType": "shop",
+      "displayName": "GOLFBUTIKKEN",
+      "serverFolder": "GOLFBUTIKKEN",
+      "registryMatch": false
+    },
+    {
+      "folderName": "IOGOLFSENTER",
+      "clubId": null,
+      "tenantKey": "iogolfsenter",
+      "tenantType": "facility",
+      "displayName": "IOGOLFSENTER",
+      "serverFolder": "IOGOLFSENTER",
+      "registryMatch": false
+    },
+    {
+      "folderName": "PGANORWAY",
+      "clubId": null,
+      "tenantKey": "pganorway",
+      "tenantType": "association",
+      "displayName": "PGANORWAY",
+      "serverFolder": "PGANORWAY",
+      "registryMatch": false
+    },
+    {
+      "folderName": "TOPPGOLF",
+      "clubId": null,
+      "tenantKey": "toppgolf",
+      "tenantType": "facility",
+      "displayName": "TOPPGOLF",
+      "serverFolder": "TOPPGOLF",
+      "registryMatch": false
+    }
+  ]
+}
