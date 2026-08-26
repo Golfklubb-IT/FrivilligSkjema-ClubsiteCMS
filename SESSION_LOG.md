@@ -2,6 +2,9 @@
 
 ## 2026-08-26 – Firebase admin-migrering
 
+- Preview-build er oppdatert med adminaktiveringsflyt etter ekte Google-login;
+  bootstrap-identitet får kun aktiveringsvisning og må opprette et godkjent
+  Firestore-admin-dokument før dashboardet vises.
 - AI Studio-kilden er importert til `firebase-app/` uten å overskrive eksisterende filer.
 - Firebase targets `demo`, `klubb` og `skigk` er verifisert i prosjektet `frivillig-kalendar-klubb`.
 - Firebase fallback-konfigurasjonen er rettet til riktig prosjekt.
