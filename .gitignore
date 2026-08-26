@@ -1,0 +1,9 @@
+# Local Firebase/AI Studio artifacts
+firebase-debug.log
+ai-studio-export.zip
+
+# Local review/build output
+dist/
+build/
+node_modules/
+.firebase/
