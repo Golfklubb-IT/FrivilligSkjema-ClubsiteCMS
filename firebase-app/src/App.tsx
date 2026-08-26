@@ -297,7 +297,12 @@ export default function App() {
 
   // In the multi-club portal, we dynamically list other clubs ONLY for the owner.
   // Regular volunteers see the single portal they typed in their Golfbox ID.
+  const currentHostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
+  const isDemoHost = currentHostname.includes('demo');
   const accessibleClubs = CLUBS.filter(c => {
+    // Demo is an isolated test site, never a selectable tenant on Ski GK or
+    // the ordinary club portal. It remains available on its own demo host.
+    if (c.id === '999' && !isDemoHost) return false;
     if (isOwner) return true;
     return c.id === activeClubId;
   });
