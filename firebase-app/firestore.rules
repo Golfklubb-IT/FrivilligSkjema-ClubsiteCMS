@@ -1,0 +1,174 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Phase 3: Primitive Definitions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Default global admin checks (hardcoded emails or legacy global documents)
+    function isGlobalAdmin() {
+      return isSignedIn() && (
+        ('email' in request.auth.token && (
+          request.auth.token.email == 'owe-admin@golfklubb-it.com' ||
+          request.auth.token.email == 'Owe-admin@golfklubb-it.com' ||
+          request.auth.token.email == 'Owe-Admin@golfklubb-it.com' ||
+          request.auth.token.email == 'Admin-2025@skigk.no' ||
+          request.auth.token.email == 'admin-2025@skigk.no' ||
+          request.auth.token.email == 'jarlemidt@gmail.com' ||
+          request.auth.token.email == 'leif.m@skigk.no' ||
+          request.auth.token.email == 'owe.stangeland@gmail.com' ||
+          request.auth.token.email == 'leif.oddbjorn.moller@gmail.com'
+        )) ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        ('email' in request.auth.token && exists(/databases/$(database)/documents/admins/$(request.auth.token.email)))
+      );
+    }
+
+    function isGlobalClubOwner() {
+      return isSignedIn() && (
+        ('email' in request.auth.token && (
+          request.auth.token.email == 'owe-admin@golfklubb-it.com' ||
+          request.auth.token.email == 'Owe-admin@golfklubb-it.com' ||
+          request.auth.token.email == 'Owe-Admin@golfklubb-it.com' ||
+          request.auth.token.email == 'Admin-2025@skigk.no' ||
+          request.auth.token.email == 'admin-2025@skigk.no' ||
+          request.auth.token.email == 'jarlemidt@gmail.com'
+        )) ||
+        (exists(/databases/$(database)/documents/admins/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == 'all') ||
+        ('email' in request.auth.token && exists(/databases/$(database)/documents/admins/$(request.auth.token.email)) && 
+         get(/databases/$(database)/documents/admins/$(request.auth.token.email)).data.role == 'all')
+      );
+    }
+
+    // Club-specific admin checks (composite-key-aware)
+    function isAdminForClub(clubId) {
+      return isSignedIn() && (
+        isGlobalAdmin() ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid + '_' + clubId)) ||
+        ('email' in request.auth.token && exists(/databases/$(database)/documents/admins/$(request.auth.token.email + '_' + clubId)))
+      );
+    }
+
+    // Club-specific club admin/owner checks (composite-key-aware)
+    function isClubAdminForClub(clubId) {
+      return isSignedIn() && (
+        isGlobalClubOwner() ||
+        (exists(/databases/$(database)/documents/admins/$(request.auth.uid + '_' + clubId)) && 
+         get(/databases/$(database)/documents/admins/$(request.auth.uid + '_' + clubId)).data.role == 'all') ||
+        ('email' in request.auth.token && exists(/databases/$(database)/documents/admins/$(request.auth.token.email + '_' + clubId)) && 
+         get(/databases/$(database)/documents/admins/$(request.auth.token.email + '_' + clubId)).data.role == 'all')
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Phase 4: Entity Validation Blueprints
+    function isValidVolunteer(data) {
+      return data.keys().hasAll(['name', 'email', 'phone', 'tasks', 'availability', 'submittedAt', 'golfboxId', 'clubId'])
+        && data.keys().size() == 8
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 128
+        && data.email is string && data.email == request.auth.token.email
+        && data.phone is string && data.phone.size() >= 5 && data.phone.size() <= 20
+        && data.availability is string && data.availability.size() <= 512
+        && data.tasks is list && data.tasks.size() >= 0 && data.tasks.size() <= 10
+        && data.submittedAt == request.time
+        && data.golfboxId is string && data.golfboxId.size() >= 3 && data.golfboxId.size() <= 50
+        && data.clubId is string && data.clubId.size() >= 2 && data.clubId.size() <= 10;
+    }
+
+    // 1. Volunteer Submissions
+    match /volunteers/{volunteerId} {
+      allow create: if isSignedIn() 
+        && isValidId(volunteerId)
+        && isValidVolunteer(incoming());
+      
+      // Admins can read everything. Checked-in volunteers can read their own registrations during get/list.
+      allow get: if (resource != null && 'clubId' in resource.data && isAdminForClub(resource.data.clubId)) || (isSignedIn() && (resource == null || resource.data.email == request.auth.token.email));
+      allow list: if isSignedIn() && (isGlobalAdmin() || resource.data.email == request.auth.token.email || ('clubId' in resource.data && isAdminForClub(resource.data.clubId)));
+      
+      // Volunteers can update their own profile, clubAdmin has full powers to edit or delete any registration
+      allow update: if (resource != null && 'clubId' in resource.data && isClubAdminForClub(resource.data.clubId)) || (isSignedIn() && resource.data.email == request.auth.token.email && isValidVolunteer(incoming()));
+      allow delete: if resource != null && 'clubId' in resource.data && isClubAdminForClub(resource.data.clubId);
+    }
+
+    // 2. Admins Collection
+    match /admins/{adminUid} {
+      // Allow any signed-in user to check if they themselves are an admin (get operation)
+      allow get: if isSignedIn() && (
+        request.auth.uid == adminUid || 
+        request.auth.token.email == adminUid ||
+        adminUid.matches('^' + request.auth.uid + '_.*') ||
+        ('email' in request.auth.token && adminUid.matches('^' + request.auth.token.email + '_.*')) ||
+        (resource == null) ||
+        (resource != null && 'email' in resource.data && resource.data.email == request.auth.token.email)
+      );
+      
+      // Only existing admins can list all admins
+      allow list: if isSignedIn() && (
+        isGlobalAdmin() ||
+        (resource != null && 'clubId' in resource.data && isAdminForClub(resource.data.clubId))
+      );
+      
+      // Allow creation, updates, or deletes on admins list by proven clubAdmin,
+      // or allow a user to write/link their own UID mapping if their email is registered,
+      // or allow global system owners to bootstrap/override their own mapping.
+      allow create, update: if (
+        isGlobalClubOwner() && (
+          request.auth.uid == adminUid || 
+          request.auth.token.email == adminUid ||
+          adminUid.matches('^' + request.auth.uid + '_.*') ||
+          ('email' in request.auth.token && adminUid.matches('^' + request.auth.token.email + '_.*'))
+        )
+      ) || (incoming() != null && 'clubId' in incoming() && isClubAdminForClub(incoming().clubId)) || (
+        isSignedIn() && 
+        (request.auth.uid == adminUid || adminUid.matches('^' + request.auth.uid + '_.*')) && 
+        (
+          (exists(/databases/$(database)/documents/admins/$(request.auth.token.email))) ||
+          ('clubId' in incoming() && exists(/databases/$(database)/documents/admins/$(request.auth.token.email + '_' + incoming().clubId)))
+        )
+      );
+      
+      allow delete: if (resource != null && 'clubId' in resource.data && isClubAdminForClub(resource.data.clubId)) || isGlobalClubOwner();
+    }
+
+    // 3. Shifts Collection
+    match /shifts/{shiftId} {
+      // Anyone signed in can read/listen to shifts
+      allow read: if isSignedIn();
+      
+      // Creating or deleting shifts requires admin privileges
+      allow create: if isGlobalAdmin() || (incoming() != null && 'clubId' in incoming() && isAdminForClub(incoming().clubId));
+      allow delete: if isGlobalAdmin() || (resource != null && 'clubId' in resource.data && isAdminForClub(resource.data.clubId));
+      
+      // Updating a shift is allowed for admins OR signed-in volunteers claiming a vacant shift with their own information
+      allow update: if isGlobalAdmin() || (resource != null && 'clubId' in resource.data && isAdminForClub(resource.data.clubId)) || (
+        isSignedIn()
+        && resource.data.volunteerId == 'vacant'
+        && incoming().id == existing().id
+        && incoming().date == existing().date
+        && incoming().task == existing().task
+        && incoming().timeSlot == existing().timeSlot
+        && incoming().volunteerId != 'vacant'
+        && incoming().volunteerEmail == request.auth.token.email
+      );
+    }
+  }
+}

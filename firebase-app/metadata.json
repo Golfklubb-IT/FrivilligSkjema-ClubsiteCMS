@@ -1,0 +1,6 @@
+{
+  "name": "Ski Golfklubb Frivilligsystem",
+  "description": "Et system for Ski Golfklubb for å administrere frivillige, påmeldinger og oppgaver.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

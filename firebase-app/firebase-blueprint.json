@@ -1,0 +1,114 @@
+{
+  "entities": {
+    "Volunteer": {
+      "title": "Volunteer",
+      "description": "A volunteer sign-up record.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the volunteer."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Verified email of the volunteer."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number."
+        },
+        "tasks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of tasks the volunteer is interested in."
+        },
+        "availability": {
+          "type": "string",
+          "description": "When the volunteer is available."
+        },
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the record was created."
+        },
+        "golfboxId": {
+          "type": "string",
+          "description": "The custom Golfbox ID of the volunteer."
+        },
+        "clubId": {
+          "type": "string",
+          "description": "ID of the specific club or tenant."
+        }
+      },
+      "required": ["name", "email", "phone", "tasks", "availability", "submittedAt", "golfboxId", "clubId"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "A user with administrative access.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Admin's verified email address."
+        }
+      },
+      "required": ["email"]
+    },
+    "Shift": {
+      "title": "Shift",
+      "description": "A specific planned shift of volunteer work.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the shift."
+        },
+        "volunteerId": {
+          "type": "string",
+          "description": "Id of the assigned volunteer, or 'vacant'."
+        },
+        "volunteerName": {
+          "type": "string",
+          "description": "Name of the assigned volunteer."
+        },
+        "volunteerPhone": {
+          "type": "string",
+          "description": "Phone number of the assigned volunteer."
+        },
+        "volunteerEmail": {
+          "type": "string",
+          "description": "Email of the assigned volunteer."
+        },
+        "task": {
+          "type": "string",
+          "description": "Assigned task."
+        },
+        "date": {
+          "type": "string",
+          "description": "ISO date string (YYYY-MM-DD)."
+        },
+        "timeSlot": {
+          "type": "string",
+          "description": "Time slot of the shift (e.g. Dagtid, Ettermiddag/Kveld)."
+        }
+      },
+      "required": ["id", "volunteerId", "volunteerName", "volunteerPhone", "volunteerEmail", "task", "date", "timeSlot"]
+    }
+  },
+  "firestore": {
+    "/volunteers/{volunteerId}": {
+      "schema": "Volunteer",
+      "description": "Public submissions from potential volunteers."
+    },
+    "/admins/{adminUid}": {
+      "schema": "Admin",
+      "description": "List of authorized administrators."
+    },
+    "/shifts/{shiftId}": {
+      "schema": "Shift",
+      "description": "Work shifts planned or assigned."
+    }
+  }
+}

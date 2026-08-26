@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "frivillig-kalendar-klubb"
+  },
+  "targets": {
+    "frivillig-kalendar-klubb": {
+      "hosting": {
+        "demo": [
+          "frivillig-kalendar-demo"
+        ],
+        "skigk": [
+          "frivillig-kalendar-skigk"
+        ],
+        "klubb": [
+          "frivillig-kalendar-klubb"
+        ]
+      }
+    }
+  }
+}
