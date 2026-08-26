@@ -63,7 +63,7 @@ const getClubById = (id: string) => {
 };
 
 const BOOTSTRAP_ADMIN_EMAILS = ['owe-admin@golfklubb-it.com', 'admin-2025@skigk.no', 'jarlemidt@gmail.com'];
-const BOOTSTRAP_APP_OWNER_EMAILS = ['owe-admin@golfklubb-it.com', 'admin-2025@skigk.no'];
+const BOOTSTRAP_APP_OWNER_EMAILS = ['owe-admin@golfklubb-it.com'];
 
 const isSkiUser = (email: string | null | undefined): boolean => {
   if (!email) return false;
@@ -423,7 +423,7 @@ export default function App() {
 
         try {
           const appOwnerDoc = await getDoc(doc(db, 'appOwners', user.uid));
-          dbIsAppOwner = appOwnerDoc.exists() || BOOTSTRAP_APP_OWNER_EMAILS.includes(userEmailLower);
+          dbIsAppOwner = (appOwnerDoc.exists() && appOwnerDoc.data()?.email?.toLowerCase() === 'owe-admin@golfklubb-it.com') || BOOTSTRAP_APP_OWNER_EMAILS.includes(userEmailLower);
         } catch (e) {
           console.warn('Could not load app owner mapping:', e);
           dbIsAppOwner = BOOTSTRAP_APP_OWNER_EMAILS.includes(userEmailLower);
@@ -547,7 +547,7 @@ export default function App() {
 
   const claimAdmin = async () => {
     const userEmailLower = user?.email ? user.email.toLowerCase() : '';
-    if (!user || !BOOTSTRAP_ADMIN_EMAILS.includes(userEmailLower)) return;
+    if (!user || !BOOTSTRAP_APP_OWNER_EMAILS.includes(userEmailLower)) return;
     setIsClaiming(true);
     try {
       await setDoc(doc(db, 'admins', user.uid), { 
@@ -894,7 +894,7 @@ export default function App() {
                       activeClubId={activeClubId}
                     />}
                 </motion.div>
-              ) : (user?.email && BOOTSTRAP_ADMIN_EMAILS.includes(user.email.toLowerCase())) ? (
+              ) : (user?.email && BOOTSTRAP_APP_OWNER_EMAILS.includes(user.email.toLowerCase())) ? (
                 <div className="text-center py-20">
                   <ShieldCheck className="w-12 h-12 text-amber-500 mx-auto mb-4" />
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">Aktiver Admin-tilgang</h2>

@@ -17,11 +17,12 @@ service cloud.firestore {
     function isAppOwner() {
       return isSignedIn() && (
         ('email' in request.auth.token && (
-          request.auth.token.email == 'owe-admin@golfklubb-it.com' ||
-          request.auth.token.email == 'admin-2025@skigk.no'
+          request.auth.token.email == 'owe-admin@golfklubb-it.com'
         )) ||
-        exists(/databases/$(database)/documents/appOwners/$(request.auth.uid)) ||
-        (exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+        (exists(/databases/$(database)/documents/appOwners/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/appOwners/$(request.auth.uid)).data.email == 'owe-admin@golfklubb-it.com') ||
+        (request.auth.token.email == 'owe-admin@golfklubb-it.com' &&
+         exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
          get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.adminLevel == 'appOwner')
       );
     }
