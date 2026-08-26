@@ -492,7 +492,10 @@ export default function App() {
           setFirestoreIsAdmin(dbIsAdmin);
           setFirestoreRole(dbRole);
           
-          if (dbIsAdmin) {
+          // Bootstrap identities may see the activation screen, but they do
+          // not receive admin permissions until the Firestore write succeeds.
+          const mayBootstrapAdmin = BOOTSTRAP_ADMIN_EMAILS.includes(userEmailLower);
+          if (dbIsAdmin || mayBootstrapAdmin) {
             setView('admin');
           } else {
             setView('volunteer');
