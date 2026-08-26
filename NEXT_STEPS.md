@@ -21,4 +21,5 @@
 - [ ] Teste opprettelse/aktivering av én testklubb i preview.
 - [ ] Teste at clubAdmin ikke kan lese eller endre andre klubbers data.
 - [ ] Knytte en eksisterende Google-konto til test-`clubAdmin`.
+- [ ] Teste e-postregistrering, verifiseringslenke og e-postinnlogging i produksjon.
 - [ ] Erstatte midlertidig e-post-bootstrap med eksplisitt owner-oppsett.

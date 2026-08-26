@@ -28,3 +28,5 @@ Preview utløper 02.09.2026 dersom kanalene ikke forlenges.
 - Adminversjonen er nå publisert til produksjonskanalene for demo, Ski GK og
   klubbportalen. Dette var en eksplisitt deploy; tidligere produksjonsversjon
   er dermed erstattet.
+- Vanlig e-post/passordregistrering og innlogging er lagt til. Nye kontoer må
+  bekrefte verifiserings-e-posten før de får tilgang.
