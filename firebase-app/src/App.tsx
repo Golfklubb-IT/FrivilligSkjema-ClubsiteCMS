@@ -216,12 +216,14 @@ export default function App() {
     return '';
   });
   const [loginStep, setLoginStep] = useState<'golfbox' | 'auth'>('golfbox');
+  const isAdminRoute = typeof window !== 'undefined' && window.location.pathname.toLowerCase().includes('/admin');
 
   const handleOpenLogin = () => {
-    const savedId = localStorage.getItem('saved_login_golfbox_id') || '';
-    setLoginGolfboxId(savedId);
-    // ALWAYS start on Step 1 (Golfbox ID selection) as requested, ignoring cached auto-progress
-    setLoginStep('golfbox');
+    if (!isAdminRoute) {
+      const savedId = localStorage.getItem('saved_login_golfbox_id') || '';
+      setLoginGolfboxId(savedId);
+    }
+    setLoginStep(isAdminRoute ? 'auth' : 'golfbox');
     setShowLoginModal(true);
   };
 
@@ -988,13 +990,21 @@ export default function App() {
               ) : (
                 <div className="space-y-6">
                   <div>
-                    <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">Trinn 2 av 2 • Verifisering</span>
-                    <h3 className="text-xl font-black text-gray-900 leading-tight mt-0.5">Sikker pålogging</h3>
-                    <p className="text-xs text-gray-400 mt-1">Logg inn med din Google-konto for å koble påloggingen til din Golfbox-profil.</p>
+                    <span className="text-[10px] font-black uppercase text-gray-400 tracking-wider">
+                      {isAdminRoute ? 'Admininnlogging • Verifisering' : 'Trinn 2 av 2 • Verifisering'}
+                    </span>
+                    <h3 className="text-xl font-black text-gray-900 leading-tight mt-0.5">
+                      {isAdminRoute ? 'Sikker admininnlogging' : 'Sikker pålogging'}
+                    </h3>
+                    <p className="text-xs text-gray-400 mt-1">
+                      {isAdminRoute
+                        ? 'Logg inn med Google-kontoen som er godkjent for klubbens adminpanel.'
+                        : 'Logg inn med din Google-konto for å koble påloggingen til din Golfbox-profil.'}
+                    </p>
                   </div>
 
                   {/* Club Identification Info Banner */}
-                  <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100 flex flex-col gap-1.5 text-xs">
+                  {!isAdminRoute && <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100 flex flex-col gap-1.5 text-xs">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-400 font-bold">Identifisert portal:</span>
                       <span className="font-extrabold uppercase flex items-center gap-1" style={{ color: currentClub.color }}>
@@ -1013,7 +1023,7 @@ export default function App() {
                     >
                       🔄 Endre Golfbox ID / Portal
                     </button>
-                  </div>
+                  </div>}
 
                   <div className="space-y-4">
                     {/* Google sign-in */}
