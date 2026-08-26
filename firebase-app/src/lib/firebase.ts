@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged as baseOnAuthStateChanged, signOut as baseSignOut } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged as baseOnAuthStateChanged, signOut as baseSignOut } from 'firebase/auth';
 import { initializeFirestore, doc, getDocFromServer } from 'firebase/firestore';
 import firebaseConfigOriginal from '../../firebase-applet-config.json';
 
@@ -56,6 +56,22 @@ export async function signInWithGoogle() {
     console.error("Error signing in with Google:", error);
     throw error;
   }
+}
+
+export async function signInWithEmail(email: string, password: string) {
+  const result = await signInWithEmailAndPassword(auth, email.trim().toLowerCase(), password);
+  if (!result.user.emailVerified) {
+    await baseSignOut(auth);
+    throw new Error('E-postadressen er ikke verifisert. Sjekk innboksen og bekreft e-postadressen før du logger inn.');
+  }
+  return result.user;
+}
+
+export async function registerWithEmail(email: string, password: string) {
+  const result = await createUserWithEmailAndPassword(auth, email.trim().toLowerCase(), password);
+  await sendEmailVerification(result.user);
+  await baseSignOut(auth);
+  return result.user;
 }
 
 async function testConnection() {

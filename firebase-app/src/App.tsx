@@ -21,7 +21,7 @@ import {
   Check,
   Sparkles
 } from 'lucide-react';
-import { auth, db, signInWithGoogle, firebaseConfig, onAuthStateChanged, signOut } from './lib/firebase';
+import { auth, db, signInWithGoogle, signInWithEmail, registerWithEmail, firebaseConfig, onAuthStateChanged, signOut } from './lib/firebase';
 import VolunteerForm from './components/VolunteerForm';
 import AdminDashboard from './components/AdminDashboard';
 import AppOwnerDashboard from './components/AppOwnerDashboard';
@@ -210,6 +210,9 @@ export default function App() {
   const [loginErrorCode, setLoginErrorCode] = useState<string | null>(null);
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [emailAuthMode, setEmailAuthMode] = useState<'login' | 'register'>('login');
+  const [emailAuthEmail, setEmailAuthEmail] = useState('');
+  const [emailAuthPassword, setEmailAuthPassword] = useState('');
   
   // Golfbox ID login step state
   const [loginGolfboxId, setLoginGolfboxId] = useState(() => {
@@ -383,6 +386,34 @@ export default function App() {
       } else {
         setLoginError(`Innlogging feilet: ${errMsg}`);
       }
+    } finally {
+      setIsSigningIn(false);
+    }
+  };
+
+  const handleEmailAuth = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setIsSigningIn(true);
+    setLoginError(null);
+    try {
+      if (emailAuthMode === 'register') {
+        await registerWithEmail(emailAuthEmail, emailAuthPassword);
+        setLoginError('Registrering fullført. Vi har sendt en verifiserings-e-post. Bekreft adressen før du logger inn.');
+      } else {
+        await signInWithEmail(emailAuthEmail, emailAuthPassword);
+        setShowLoginModal(false);
+      }
+    } catch (error: any) {
+      const code = error?.code || '';
+      const message = error?.message || 'E-postinnlogging feilet.';
+      const friendly = code === 'auth/invalid-credential'
+        ? 'E-post eller passord er feil.'
+        : code === 'auth/email-already-in-use'
+          ? 'E-postadressen er allerede registrert. Velg Logg inn.'
+          : code === 'auth/weak-password'
+            ? 'Passordet må være minst 6 tegn.'
+            : message;
+      setLoginError(friendly);
     } finally {
       setIsSigningIn(false);
     }
@@ -1073,10 +1104,51 @@ export default function App() {
                       Logg inn med Google
                     </button>
 
+                    <div className="relative flex items-center gap-3 py-1 text-[10px] font-black uppercase tracking-widest text-gray-300">
+                      <div className="h-px flex-1 bg-gray-100" /> eller <div className="h-px flex-1 bg-gray-100" />
+                    </div>
+
+                    <form onSubmit={handleEmailAuth} className="space-y-3">
+                      <input
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={emailAuthEmail}
+                        onChange={event => setEmailAuthEmail(event.target.value)}
+                        placeholder="E-postadresse"
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold outline-none transition-all focus:border-[#1e3a24] focus:bg-white"
+                      />
+                      <input
+                        type="password"
+                        required
+                        minLength={6}
+                        autoComplete={emailAuthMode === 'register' ? 'new-password' : 'current-password'}
+                        value={emailAuthPassword}
+                        onChange={event => setEmailAuthPassword(event.target.value)}
+                        placeholder="Passord (minst 6 tegn)"
+                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold outline-none transition-all focus:border-[#1e3a24] focus:bg-white"
+                      />
+                      <button
+                        type="submit"
+                        disabled={isSigningIn}
+                        className="w-full rounded-xl bg-[#1e3a24] px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#2d5635] disabled:opacity-50"
+                      >
+                        {isSigningIn ? <Loader2 className="mx-auto h-5 w-5 animate-spin" /> : emailAuthMode === 'register' ? 'Registrer med e-post' : 'Logg inn med e-post'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setEmailAuthMode(current => current === 'login' ? 'register' : 'login')}
+                        className="w-full text-xs font-bold text-[#1e3a24] hover:underline"
+                      >
+                        {emailAuthMode === 'login' ? 'Ny bruker? Registrer deg her' : 'Har du allerede konto? Logg inn'}
+                      </button>
+                      <p className="text-center text-[10px] font-semibold leading-relaxed text-gray-400">Ved registrering må e-postadressen verifiseres før tilgang gis.</p>
+                    </form>
+
                     <div className="pt-3 border-t border-gray-100 flex items-start gap-2 text-[10px] text-gray-500 font-bold leading-relaxed">
                       <span className="shrink-0" style={{ color: currentClub.color }}>🔒 SIKKERHET:</span>
                       <span>
-                        Kun godkjente, registrerte live Google-kontoer har tilgang til portalen.
+                        Kun verifiserte kontoer med godkjent rolle har tilgang til adminpanelet.
                       </span>
                     </div>
 
