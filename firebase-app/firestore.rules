@@ -12,6 +12,20 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    // AppOwner is the top-level application owner. The email bootstrap list is
+    // transitional and should be replaced by explicit appOwners documents.
+    function isAppOwner() {
+      return isSignedIn() && (
+        ('email' in request.auth.token && (
+          request.auth.token.email == 'owe-admin@golfklubb-it.com' ||
+          request.auth.token.email == 'admin-2025@skigk.no'
+        )) ||
+        exists(/databases/$(database)/documents/appOwners/$(request.auth.uid)) ||
+        (exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.adminLevel == 'appOwner')
+      );
+    }
+
     // Default global admin checks (hardcoded emails or legacy global documents)
     function isGlobalAdmin() {
       return isSignedIn() && (
@@ -124,6 +138,7 @@ service cloud.firestore {
       // Only existing admins can list all admins
       allow list: if isSignedIn() && (
         isGlobalAdmin() ||
+        isAppOwner() ||
         (resource != null && 'clubId' in resource.data && isAdminForClub(resource.data.clubId))
       );
       
@@ -147,6 +162,44 @@ service cloud.firestore {
       );
       
       allow delete: if (resource != null && 'clubId' in resource.data && isClubAdminForClub(resource.data.clubId)) || isGlobalClubOwner();
+    }
+
+    // 2b. Application ownership, tenants and licensing
+    match /appOwners/{ownerUid} {
+      allow get: if isSignedIn() && (request.auth.uid == ownerUid || isAppOwner());
+      allow list: if isAppOwner();
+      allow create, update: if isAppOwner() && request.auth.uid == ownerUid;
+      allow delete: if isAppOwner() && request.auth.uid != ownerUid;
+    }
+
+    match /tenants/{tenantId} {
+      allow read: if isAppOwner() || (isSignedIn() && isAdminForClub(tenantId));
+      allow create: if isAppOwner() && isValidId(tenantId)
+        && incoming().keys().hasAll(['name', 'slug', 'status', 'createdAt', 'updatedAt'])
+        && incoming().name is string && incoming().name.size() >= 2 && incoming().name.size() <= 128
+        && incoming().slug == tenantId
+        && incoming().status in ['active', 'inactive'];
+      allow update: if isAppOwner()
+        && incoming().name is string && incoming().name.size() >= 2 && incoming().name.size() <= 128
+        && incoming().status in ['active', 'inactive'];
+      allow delete: if false;
+    }
+
+    match /appCatalog/{appId} {
+      allow read: if isSignedIn();
+      allow create, update: if isAppOwner() && isValidId(appId)
+        && incoming().name is string && incoming().name.size() >= 2 && incoming().name.size() <= 128
+        && incoming().enabled is bool;
+      allow delete: if isAppOwner();
+    }
+
+    match /licenses/{licenseId} {
+      allow read: if isAppOwner() || (isSignedIn() && resource != null && isAdminForClub(resource.data.tenantId));
+      allow create, update: if isAppOwner()
+        && incoming().tenantId is string && incoming().appId is string
+        && incoming().status in ['active', 'suspended', 'trial']
+        && licenseId == incoming().tenantId + '_' + incoming().appId;
+      allow delete: if isAppOwner();
     }
 
     // 3. Shifts Collection

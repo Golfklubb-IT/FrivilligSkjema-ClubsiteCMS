@@ -24,6 +24,7 @@ import {
 import { auth, db, signInWithGoogle, firebaseConfig, onAuthStateChanged, signOut } from './lib/firebase';
 import VolunteerForm from './components/VolunteerForm';
 import AdminDashboard from './components/AdminDashboard';
+import AppOwnerDashboard from './components/AppOwnerDashboard';
 import { cn } from './lib/utils';
 
 const CLUBS = [
@@ -62,6 +63,7 @@ const getClubById = (id: string) => {
 };
 
 const BOOTSTRAP_ADMIN_EMAILS = ['owe-admin@golfklubb-it.com', 'admin-2025@skigk.no', 'jarlemidt@gmail.com'];
+const BOOTSTRAP_APP_OWNER_EMAILS = ['owe-admin@golfklubb-it.com', 'admin-2025@skigk.no'];
 
 const isSkiUser = (email: string | null | undefined): boolean => {
   if (!email) return false;
@@ -170,6 +172,7 @@ export default function App() {
 
   const [firestoreIsAdmin, setFirestoreIsAdmin] = useState(false);
   const [firestoreRole, setFirestoreRole] = useState<string | null>(null);
+  const [firestoreIsAppOwner, setFirestoreIsAppOwner] = useState(false);
   const [loading, setLoading] = useState(true);
 
   // Read initial view choice with robust fallbacks
@@ -278,14 +281,14 @@ export default function App() {
 
   // URL parameters may select a view, but never grant authorization.
   const userEmailLower = user?.email ? user.email.toLowerCase() : '';
-  const isOwner = firestoreRole === 'all';
+  const isOwner = firestoreIsAppOwner;
 
   const isDemoActive = activeClubId === '999';
 
   // Dynamic role and admin level resolution based on current club session
   const isAdmin = firestoreIsAdmin;
 
-  const isClubAdmin = firestoreRole === 'all';
+  const isClubAdmin = firestoreRole === 'all' || firestoreRole === 'appOwner';
 
   const userRole = firestoreRole;
 
@@ -387,6 +390,7 @@ export default function App() {
       if (!user) {
         setFirestoreIsAdmin(false);
         setFirestoreRole(null);
+        setFirestoreIsAppOwner(false);
         setLoading(false);
       } else {
         setShowLoginModal(false);
@@ -410,6 +414,15 @@ export default function App() {
 
         let dbIsAdmin = false;
         let dbRole: string | null = null;
+        let dbIsAppOwner = false;
+
+        try {
+          const appOwnerDoc = await getDoc(doc(db, 'appOwners', user.uid));
+          dbIsAppOwner = appOwnerDoc.exists() || BOOTSTRAP_APP_OWNER_EMAILS.includes(userEmailLower);
+        } catch (e) {
+          console.warn('Could not load app owner mapping:', e);
+          dbIsAppOwner = BOOTSTRAP_APP_OWNER_EMAILS.includes(userEmailLower);
+        }
 
         let uidClubDoc = null;
         try {
@@ -418,9 +431,10 @@ export default function App() {
           console.warn("Could not load club UID admin mapping (expected for non-existing composite admins):", e);
         }
 
-        if (uidClubDoc && uidClubDoc.exists() && active) {
-          dbIsAdmin = true;
-          dbRole = uidClubDoc.data()?.role || 'all';
+          if (uidClubDoc && uidClubDoc.exists() && active) {
+            dbIsAdmin = true;
+            dbRole = uidClubDoc.data()?.role || 'all';
+            dbIsAppOwner = dbIsAppOwner || uidClubDoc.data()?.adminLevel === 'appOwner';
         } else if (userEmailLower) {
           let emailClubDoc = null;
           try {
@@ -432,6 +446,7 @@ export default function App() {
           if (emailClubDoc && emailClubDoc.exists() && active) {
             dbIsAdmin = true;
             dbRole = emailClubDoc.data()?.role || 'all';
+            dbIsAppOwner = dbIsAppOwner || emailClubDoc.data()?.adminLevel === 'appOwner';
             
             // Auto-link/write UID-based document for performance
             try {
@@ -462,6 +477,7 @@ export default function App() {
             if (!docClubId || docClubId === activeClubId) {
               dbIsAdmin = true;
               dbRole = legacyUidDoc.data()?.role || 'all';
+              dbIsAppOwner = dbIsAppOwner || legacyUidDoc.data()?.adminLevel === 'appOwner';
             }
           } else if (userEmailLower) {
             let legacyEmailDoc = null;
@@ -476,6 +492,7 @@ export default function App() {
               if (!docClubId || docClubId === activeClubId) {
                 dbIsAdmin = true;
                 dbRole = legacyEmailDoc.data()?.role || 'all';
+                dbIsAppOwner = dbIsAppOwner || legacyEmailDoc.data()?.adminLevel === 'appOwner';
                 
                 try {
                   await setDoc(doc(db, 'admins', user.uid), {
@@ -493,6 +510,7 @@ export default function App() {
         if (active) {
           setFirestoreIsAdmin(dbIsAdmin);
           setFirestoreRole(dbRole);
+          setFirestoreIsAppOwner(dbIsAppOwner);
           
           // Bootstrap identities may see the activation screen, but they do
           // not receive admin permissions until the Firestore write succeeds.
@@ -530,10 +548,17 @@ export default function App() {
       await setDoc(doc(db, 'admins', user.uid), { 
         email: user.email,
         role: 'all',
+        adminLevel: 'appOwner',
         createdAt: new Date()
       });
+      await setDoc(doc(db, 'appOwners', user.uid), {
+        email: user.email,
+        role: 'appOwner',
+        createdAt: new Date()
+      }, { merge: true });
       setFirestoreIsAdmin(true);
       setFirestoreRole('all');
+      setFirestoreIsAppOwner(true);
       setView('admin');
     } catch (e) {
       console.error("Failed to claim admin:", e);
@@ -856,13 +881,13 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                 >
-                  <AdminDashboard 
-                    user={user} 
-                    isAdmin={isAdmin} 
-                    isClubAdmin={isClubAdmin} 
-                    userRole={userRole} 
-                    activeClubId={activeClubId}
-                  />
+                  {isOwner ? <AppOwnerDashboard /> : <AdminDashboard 
+                      user={user} 
+                      isAdmin={isAdmin} 
+                      isClubAdmin={isClubAdmin} 
+                      userRole={userRole} 
+                      activeClubId={activeClubId}
+                    />}
                 </motion.div>
               ) : (user?.email && BOOTSTRAP_ADMIN_EMAILS.includes(user.email.toLowerCase())) ? (
                 <div className="text-center py-20">

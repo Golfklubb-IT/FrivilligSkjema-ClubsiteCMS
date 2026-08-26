@@ -12,3 +12,12 @@
 - [ ] Review og deploye Firestore Rules.
 - [ ] Merge til `master` etter godkjent preview.
 - [ ] Deploye produksjonskanalene etter godkjent test.
+
+## AppOwner og lisensiering
+
+- [x] Innføre `appOwner`-nivå over `clubAdmin`.
+- [x] Legge til Firestore-kolleksjoner for `appOwners`, `tenants`, `appCatalog` og `licenses`.
+- [x] Lage appOwner-panel for klubbaktivering, clubAdmin og lisensstatus.
+- [ ] Teste opprettelse/aktivering av én testklubb i preview.
+- [ ] Teste at clubAdmin ikke kan lese eller endre andre klubbers data.
+- [ ] Erstatte midlertidig e-post-bootstrap med eksplisitt owner-oppsett.

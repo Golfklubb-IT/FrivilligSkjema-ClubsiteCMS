@@ -14,3 +14,12 @@
 - `admin-test` preview er publisert for alle tre sites. Produksjonskanalene er ikke endret.
 
 Preview utløper 02.09.2026 dersom kanalene ikke forlenges.
+
+## 2026-08-26 – AppOwner og lisenser
+
+- Implementert globalt `appOwner`-nivå over `clubAdmin`.
+- AppOwner-panelet kan opprette/deaktivere klubber, registrere clubAdmin og
+  aktivere/suspendere lisenser for VTG, Golfbil og Frivilligportal.
+- Firestore-regler er deployet med tenant-, appkatalog- og lisensisolasjon.
+- Ny kode er lintet, bygget og publisert til `admin-test` for demo, Ski GK og
+  klubb-portalen. Produksjonskanalene er fortsatt uendret.
