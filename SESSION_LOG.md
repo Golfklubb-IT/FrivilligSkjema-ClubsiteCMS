@@ -30,3 +30,8 @@ Preview utløper 02.09.2026 dersom kanalene ikke forlenges.
   er dermed erstattet.
 - Vanlig e-post/passordregistrering og innlogging er lagt til. Nye kontoer må
   bekrefte verifiserings-e-posten før de får tilgang.
+
+## 2026-08-27 – Restartpunkt
+
+- Opprettet `RESTART_STARTPOINT.md` med branch-, deploy-, rolle- og teststatus.
+- Neste økt skal starte med Playwright/browser bridge og autentisert test.

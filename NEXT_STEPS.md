@@ -22,4 +22,11 @@
 - [ ] Teste at clubAdmin ikke kan lese eller endre andre klubbers data.
 - [ ] Knytte en eksisterende Google-konto til test-`clubAdmin`.
 - [ ] Teste e-postregistrering, verifiseringslenke og e-postinnlogging i produksjon.
+
+## Restart 27.08.2026
+
+- [ ] Koble til Playwright/browser bridge igjen.
+- [ ] Ta autentiserte skjermbilder av appOwner- og clubAdmin-flyt.
+- [ ] Teste og rydde en midlertidig e-postbasert test-`clubAdmin`.
+- [ ] Verifisere tenantisolasjon før eventuell merge til `master`.
 - [ ] Erstatte midlertidig e-post-bootstrap med eksplisitt owner-oppsett.
