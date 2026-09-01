@@ -1,5 +1,9 @@
 # Prosjektoverlevering
 
+## Fast arkitekturbeslutning
+
+Firebase-versjonen skal alltid beholdes som den komplette fullversjonen. IIS/Classic er en separat, valgfri plugin-/integrasjonsvariant som kan installeres via ClubsiteCMS for klubber som har denne CMS-integrasjonen. Klubber uten ClubsiteCMS skal fortsatt bruke fullversjonen i Firebase. IIS/Classic er derfor ikke en migrering eller erstatning av Firebase, og skal utvikles og deployes i et eget spor.
+
 Firebase-kilden ligger midlertidig under `firebase-app/`.
 
 - Repository: `Golfklubb-IT/FrivilligSkjema-ClubsiteCMS`

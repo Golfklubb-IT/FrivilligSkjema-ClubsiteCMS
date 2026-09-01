@@ -1,5 +1,17 @@
 # NEXT_STEPS
 
+## Produktstrategi for distribusjonsvariantene
+
+**Fast beslutning:** Firebase er den permanente fullversjonen. IIS/Classic er en separat, valgfri ClubsiteCMS-plugin for klubber som har CMS-integrasjonen. Firebase skal fortsatt være løsningen for alle andre klubber.
+
+### IIS/Classic-plugin
+
+- [ ] Skaffe og dokumentere et reelt ClubsiteCMS-plugin/API-eksempel før implementasjonsdetaljer låses.
+- [ ] Definere integrasjonskontrakt for CMS-eid klubb-, rolle- og tenantkontekst.
+- [ ] Lage IIS/Classic som et separat plugin-/deployspor uten å endre Firebase-versjonen.
+- [ ] Bygge og verifisere én liten Demo-vertikal gjennomgang i ClubsiteCMS før videre utvidelse.
+- [ ] Dokumentere funksjonsmatrise og tydelig fallback til Firebase for klubber uten ClubsiteCMS.
+
 ## Firebase admin-migrering
 
 - [x] Importere AI Studio-kilden uten overskriving.

@@ -8,6 +8,13 @@ This Firebase source is maintained under `firebase-app/` in the
 `FrivilligSkjema-ClubsiteCMS` repository. The three Hosting targets are
 `demo`, `klubb` and `skigk`, all in the `frivillig-kalendar-klubb` project.
 
+## Distribution boundary
+
+This Firebase application is the permanent, complete full version and must
+always be retained. The IIS/Classic version is a separate optional plugin
+integration for ClubsiteCMS installations; clubs without that CMS integration
+continue to use this Firebase version.
+
 Production Hosting is deliberately unchanged until the admin preview has been
 tested with real Firebase Authentication and tenant-scoped admin records.
 

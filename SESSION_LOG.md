@@ -1,5 +1,12 @@
 # SESSION_LOG
 
+## 2026-09-01 – Fast avklaring av Firebase- og IIS/Classic-spor
+
+- Firebase-versjonen beholdes permanent som den komplette fullversjonen.
+- IIS/Classic etableres som en separat, valgfri plugin via ClubsiteCMS for klubber som har CMS-integrasjonen.
+- Klubber uten ClubsiteCMS fortsetter med fullversjonen i Firebase.
+- Avklaringen er lagt inn i `DECISIONS.md`, `NEXT_STEPS.md` og denne handoff-konteksten. IIS/Classic skal ikke behandles som en migrering bort fra Firebase.
+
 ## 2026-08-26 – Firebase admin-migrering
 
 - Preview-build er oppdatert med adminaktiveringsflyt etter ekte Google-login;
