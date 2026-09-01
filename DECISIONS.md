@@ -10,6 +10,13 @@ Dette er en fast produkt- og arkitekturbeslutning:
 - Klubber som ikke har ClubsiteCMS-integrasjon skal fortsatt bruke fullversjonen i Firebase.
 - Firebase og IIS/Classic skal ha separate runtime-, deploy- og integrasjonsløp. Felles domenelogikk kan gjenbrukes når det er trygt, men IIS-sporet skal ikke svekke eller fjerne Firebase-sporet.
 
+## 2026-09-01 – Mock connection før SQL
+
+- IIS/Classic utvikles trinnvis med mock connection/mock API først.
+- Frontend, API-kontrakt, roller, tenantgrense, bookingregler og adminflyt skal verifiseres før databasearbeid.
+- SQL-tabeller, migrering og ekte MS SQL-tilkobling skal være siste implementasjonspunkt.
+- Den tidligere `GKIT-Golfbilutleie-Multi-for-CS-Integration`-prototypen er ekskludert fra dette arbeidsløpet og brukes kun som historisk referanse.
+
 ## 2026-08-26 – Firebase-kilde og deployrekkefølge
 
 - AI Studio-prosjektet er kilde for Firebase-versjonen.

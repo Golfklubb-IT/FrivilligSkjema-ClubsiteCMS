@@ -6,11 +6,17 @@
 
 ### IIS/Classic-plugin
 
-- [ ] Skaffe og dokumentere et reelt ClubsiteCMS-plugin/API-eksempel før implementasjonsdetaljer låses.
-- [ ] Definere integrasjonskontrakt for CMS-eid klubb-, rolle- og tenantkontekst.
-- [ ] Lage IIS/Classic som et separat plugin-/deployspor uten å endre Firebase-versjonen.
-- [ ] Bygge og verifisere én liten Demo-vertikal gjennomgang i ClubsiteCMS før videre utvidelse.
-- [ ] Dokumentere funksjonsmatrise og tydelig fallback til Firebase for klubber uten ClubsiteCMS.
+Arbeidsmodellen er mock-first. SQL-tabeller og ekte databasekobling skal være siste punkt, etter at grensesnitt, API-kontrakt, roller og bookingflyt er verifisert.
+
+1. [ ] Avgrense IIS-pluginen og holde `GKIT-Golfbilutleie-Multi-for-CS-Integration` utenfor dette arbeidet som historisk referanse.
+2. [ ] Dokumentere ClubsiteCMS-pluginens faktiske innkoblingspunkt, session- og rollemodell.
+3. [ ] Definere stabil API-kontrakt for offentlig visning, tilgjengelighet, booking og admin.
+4. [ ] Lage mock connection/mock API med samme responser og feilkoder som produksjonskontrakten.
+5. [ ] Koble React/Vite-frontend til mock connection og fjerne avhengighet til `localStorage` i pluginflyten.
+6. [ ] Implementere og teste offentlig booking, konfliktkontroll og adminflyt mot mock-data.
+7. [ ] Verifisere tenant-/klubbgrense, tilgangsnivåer, Playwright-flyt og CMS-styling i staging.
+8. [ ] Lage installasjons-, deploy-, backup- og rollback-dokumentasjon for pluginen.
+9. [ ] **Sist:** Definere SQL-tabeller, migrering og ekte Classic ASP/MS SQL connection basert på den verifiserte API-kontrakten.
 
 ## Firebase admin-migrering
 

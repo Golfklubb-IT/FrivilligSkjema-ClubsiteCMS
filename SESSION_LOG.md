@@ -7,6 +7,12 @@
 - Klubber uten ClubsiteCMS fortsetter med fullversjonen i Firebase.
 - Avklaringen er lagt inn i `DECISIONS.md`, `NEXT_STEPS.md` og denne handoff-konteksten. IIS/Classic skal ikke behandles som en migrering bort fra Firebase.
 
+## 2026-09-01 – Trinnvis IIS-plan med mock connection
+
+- Videre IIS-plan bruker mock connection/mock API frem til alle sentrale flyter er verifisert.
+- SQL-tabeller, migrering og ekte MS SQL-kobling flyttes eksplisitt til siste punkt.
+- `GKIT-Golfbilutleie-Multi-for-CS-Integration` holdes utenfor prosessen som tidligere integrasjonsmal/historisk referanse.
+
 ## 2026-08-26 – Firebase admin-migrering
 
 - Preview-build er oppdatert med adminaktiveringsflyt etter ekte Google-login;
